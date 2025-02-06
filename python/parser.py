@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import json
 
-with open('NavApp/src/assets/Maps/intersections.svg','r') as f:
+with open('../navApp/src/assets/Maps/ixtest4.svg','r') as f:
     svg_content = f.read()
 
 soup = BeautifulSoup(svg_content,"xml")
