@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.Container{
+  display: flex;
+}
+.sidebar{
+  color: white;
+  border: 2px solid white;
+
+}
 
 .map-viewPort{
   width: 100%;
@@ -20,7 +28,6 @@
   border: 2px solid white;
 }
 
-/* Add these */
 .map-viewPort > div, /* TransformWrapper */
 .map-viewPort > div > div { /* TransformComponent */
   width: 100%;
