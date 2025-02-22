@@ -1,5 +1,4 @@
 const DrawNodes = ({nodes}) => {
-    const scale = 3.779528; // Inkscape's scale factor
     
     return (
         <g>
