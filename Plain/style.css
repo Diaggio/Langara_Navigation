@@ -1,0 +1,8 @@
+body{
+    background-color: #212121;
+}
+
+#Map-Container svg{
+    width: 50%;
+    height: auto;
+}
