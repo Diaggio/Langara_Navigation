@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import json
 
-with open('../Plain/Images/A2FloorPlanNodes2.svg','r') as f:
+with open('../Plain/Images/A2FloorPlanNodes3.svg','r') as f:
     svg_content = f.read()
 
 soup = BeautifulSoup(svg_content,"xml")

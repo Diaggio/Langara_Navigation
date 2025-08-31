@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="555.40613"
-   height="792.88568"
-   viewBox="0 0 555.40612 792.88571"
+   width="555.40765"
+   height="792.88794"
+   viewBox="0 0 555.40765 792.88797"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    sodipodi:docname="A2FloorPlanNodes3.svg"
-   inkscape:export-filename="A2FloorPlanNodes3.svg"
+   inkscape:export-filename="A2FloorPlanBlank.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,43 +27,48 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showguides="true"
-     inkscape:zoom="3.3235717"
-     inkscape:cx="105.91016"
-     inkscape:cy="103.65355"
+     inkscape:zoom="1.99502"
+     inkscape:cx="172.9306"
+     inkscape:cy="149.62256"
      inkscape:window-width="1704"
      inkscape:window-height="1040"
      inkscape:window-x="6"
      inkscape:window-y="44"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="GraphLayer">
     <sodipodi:guide
-       position="-565.95878,1137.5378"
+       position="-565.95858,1137.5404"
        orientation="1,0"
        id="guide7"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="-466.21507,1024.745"
+       position="-466.21487,1024.7476"
        orientation="0,-1"
        id="guide8"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="-466.21507,1093.0141"
+       position="-466.21487,1093.0167"
        orientation="0,-1"
        id="guide9"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="-469.56587,1133.9608"
+       position="-469.56567,1133.9634"
        orientation="1,0"
        id="guide10"
        inkscape:locked="false" />
     <inkscape:page
        x="0"
-       y="-3.608249e-22"
-       width="555.40613"
-       height="792.88568"
-       id="page1"
+       y="0"
+       width="555.40765"
+       height="792.888"
+       id="page2"
        margin="0"
        bleed="0" />
+    <sodipodi:guide
+       position="152.1375,761.8705"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs1">
@@ -912,8 +917,7 @@
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96"
      style="display:inline"
-     sodipodi:insensitive="true"
-     transform="translate(-1.9997517e-4,3.3003518e-4)">
+     sodipodi:insensitive="true">
     <g
        id="layer-MC7"
        inkscape:groupmode="layer"
@@ -2374,7 +2378,7 @@
     <g
        id="layer-MC9"
        inkscape:label="A Level 2 Picto"
-       style="display:inline"
+       style="display:none"
        inkscape:groupmode="layer">
       <path
          id="path2069"
@@ -3147,6 +3151,408 @@
          d="m 176.441,314.622 h -1.511 v -1.509 h -1.665 v 1.509 h -1.508 v 1.665 h 1.508 v 1.51 h 1.665 v -1.51 h 1.511 z"
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          clip-path="url(#clipPath2342)" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="GraphLayer"
+     inkscape:label="GraphLayer"
+     style="display:inline">
+    <g
+       id="g1"
+       inkscape:label="HallwayNodes">
+      <circle
+         style="display:inline;fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-1"
+         cx="71.130852"
+         cy="73.819901"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-2"
+         cx="71.75"
+         cy="47.490765"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-3"
+         cx="152.1375"
+         cy="47.162766"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-4"
+         cx="228.487"
+         cy="40.266666"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-5"
+         cx="152.1375"
+         cy="148.96086"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-6"
+         cx="152.1375"
+         cy="212.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-7"
+         cx="86.75"
+         cy="212.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-8"
+         cx="90.75"
+         cy="264.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-9"
+         cx="148.75"
+         cy="266.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-10"
+         cx="150.75"
+         cy="333.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-11"
+         cx="176.75"
+         cy="405.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-12"
+         cx="150.75"
+         cy="431.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-13"
+         cx="87.75"
+         cy="433.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-14"
+         cx="86.75"
+         cy="542.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-15"
+         cx="150.75"
+         cy="542.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-16"
+         cx="147.75"
+         cy="741.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-17"
+         cx="48.75"
+         cy="745.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-18"
+         cx="69.75"
+         cy="715.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-19"
+         cx="404.75"
+         cy="750.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-20"
+         cx="408.75"
+         cy="781.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-21"
+         cx="488.75"
+         cy="741.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-22"
+         cx="488.75"
+         cy="711.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-23"
+         cx="404.75"
+         cy="468.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-24"
+         cx="475.75"
+         cy="462.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-25"
+         cx="477.75"
+         cy="382.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-26"
+         cx="406.75"
+         cy="377.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-27"
+         cx="377.75"
+         cy="404.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-28"
+         cx="404.75"
+         cy="331.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-29"
+         cx="304.75"
+         cy="331.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-30"
+         cx="305.75"
+         cy="282.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-31"
+         cx="250.75"
+         cy="332.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-32"
+         cx="251.75"
+         cy="282.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-33"
+         cx="404.75"
+         cy="150.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-34"
+         cx="323.75"
+         cy="149.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-35"
+         cx="231.75"
+         cy="149.51443"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-36"
+         cx="324.75"
+         cy="209.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-37"
+         cx="231.75"
+         cy="209.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-38"
+         cx="212.05051"
+         cy="100.75433"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-39"
+         cx="405.75"
+         cy="49.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-40"
+         cx="483.75"
+         cy="49.75"
+         r="3.75" />
+      <circle
+         style="fill:#00ff00;stroke-width:1.01266"
+         id="A2HallwayNode-41"
+         cx="484.75"
+         cy="74.75"
+         r="3.75" />
+    </g>
+    <g
+       id="RoomNodes">
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A238"
+         cx="91"
+         cy="57"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A239"
+         cx="112"
+         cy="57"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240a"
+         cx="44"
+         cy="43"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240b"
+         cx="53.5769"
+         cy="39.742764"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240c"
+         cx="73"
+         cy="40"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240d"
+         cx="93"
+         cy="40"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240e"
+         cx="112"
+         cy="39"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241b"
+         cx="197"
+         cy="49"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241c"
+         cx="231"
+         cy="30"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241d"
+         cx="212"
+         cy="30"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241e"
+         cx="193"
+         cy="31"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241f"
+         cx="172"
+         cy="30"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A241a"
+         cx="173"
+         cy="49"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A240f"
+         cx="133"
+         cy="40"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A242"
+         cx="152"
+         cy="31"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A247a"
+         cx="240"
+         cy="34"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A247b"
+         cx="219"
+         cy="49"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A244a"
+         cx="161"
+         cy="91"
+         r="2" />
+      <circle
+         style="display:inline;fill:#800000;stroke-width:0.953594"
+         id="A2RoomNode-A244"
+         cx="180"
+         cy="141"
+         r="2" />
+    </g>
+    <g
+       id="g3"
+       inkscape:label="HallwayEdges"
+       style="display:inline">
+      <path
+         style="fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.5;stroke-dasharray:none"
+         d="m 71.75,47.490765 80.3875,-0.327999"
+         id="A2HallwayEdge-2-3" />
+      <path
+         style="fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+         d="m 152.1375,47.162766 76.3495,-6.8961"
+         id="A2HallwayEdge-3-4" />
+      <path
+         style="display:inline;fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+         d="M 152.1375,47.162766 V 148.96086"
+         id="A2HallwayEdge-3-5" />
+      <path
+         style="display:inline;fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+         d="M 152.1375,148.96086 V 212.75"
+         id="A2HallwayEdge-5-6" />
+      <path
+         style="display:inline;fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+         d="M 152.1375,212.75 H 86.75"
+         id="A2HallwayEdge-6-7" />
+      <path
+         style="display:inline;fill:#2a0808;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+         d="m 152.1375,148.96086 79.6125,0.55357"
+         id="A2HallwayEdge-5-35" />
     </g>
   </g>
 </svg>

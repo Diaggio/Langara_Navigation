@@ -6,7 +6,7 @@ import nodes from './assets/Nodes/nodes.json';
 
 function App() {
   const [activePath, setActivePath] = useState(null);
-  const [showNodes, setShowNodes] = useState(true);
+  const [showNodes, setShowNodes] = useState(false);
 
   const handlePathfind = (start, end) => {
     setActivePath({ start, end });
