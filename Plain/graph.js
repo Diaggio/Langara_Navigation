@@ -27,4 +27,167 @@ class Graph{
 
         return true;
     }
+
+    nodesList(){
+        return this.AdjacencyList.keys();
+    }
+
+    getNeighbours(node){
+        let neighbourMap = this.AdjacencyList.get(node);
+        if(neighbourMap == undefined){
+            return [];
+        }
+
+        return neighbourMap.entries();
+    }
+
+
 }
+
+class MinPriorityQueue{
+
+    constructor(){
+        this.heap = [];
+    }
+
+    size(){
+        return this.heap.length;
+    }
+
+    enqueue(item,priority){
+        const entry = {item:item, priority:priority};
+        this.heap.push(entry)
+
+        let childIndex = this.heap.length - 1;
+
+        while(childIndex > 0){
+            let parentIndex = Math.floor((childIndex - 1)/2);
+            
+            let parent = this.heap[parentIndex];
+            let child = this.heap[childIndex];
+
+            if(parent.priority <= child.priority){
+                break;
+            }
+
+            this.heap[parentIndex]=child;
+            this.heap[childIndex]=parent;
+
+            childIndex = parentIndex;
+
+        }
+    }
+
+    dequeue(){
+
+        if(this.heap.length == 0){
+            return undefined;
+        }
+
+        let topItem = this.heap[0];
+        let lastItem = this.heap.pop();
+
+        if(this.heap.length > 0){
+            this.heap[0] = lastItem;
+        }
+
+        let parentIndex = 0;
+
+        while(true){
+
+            let leftChildIndex = parentIndex * 2 + 1;
+            let rightChildIndex = leftChildIndex + 1;
+
+            let smallestIndex = parentIndex;
+
+            if(leftChildIndex < this.heap.length && 
+                this.heap[leftChildIndex].priority < this.heap[smallestIndex].priority){
+                    smallestIndex = leftChildIndex;
+                }
+            if(rightChildIndex < this.heap.length &&
+                this.heap[rightChildIndex].priority < this.heap[smallestIndex].priority){
+                    smallestIndex = rightChildIndex;
+                }
+            
+            if(smallestIndex == parentIndex){
+                break;
+            }
+
+            let temp = this.heap[parentIndex];
+            this.heap[parentIndex] = this.heap[smallestIndex];
+            this.heap[smallestIndex] = temp;
+
+            parentIndex = smallestIndex;
+        }
+
+        return topItem;
+
+    }
+
+}
+
+
+function dijkstra(graph,source){
+
+    const distance = new Map();
+    const path = new Map();
+
+    for(const node of graph.nodesList()){
+        distance.set(node, Infinity);
+    }
+
+    distance.set(source, 0);
+
+    let queue = new MinPriorityQueue();
+    queue.enqueue(source, 0);
+
+    while(queue.size() > 0){
+        let entry = queue.dequeue();
+        let currentNode = entry.item;
+        let currentDistance = entry.priority;
+
+        if(currentDistance != distance.get(currentNode)){
+            continue;
+        }
+
+        for(const [neighbour,edgeWeight] of graph.getNeighbours(currentNode)){
+            let newDistance = currentDistance + edgeWeight;
+            if(newDistance < distance.get(neighbour)){
+                distance.set(neighbour, newDistance);
+                path.set(neighbour, currentNode);
+                queue.enqueue(neighbour, newDistance);
+            }
+        }
+
+    }
+
+    return {distance:distance, path:path};
+
+
+}
+
+function reconstructPath(previous, source, target) {
+  const path = [];
+  let node = target;
+
+  if (source === target) {
+    return [source];
+  }
+
+  if (!previous.has(target)) {
+    return []; // unreachable
+  }
+
+  while (node !== undefined) {
+    path.push(node);
+    if (node === source) {
+      break;
+    }
+    node = previous.get(node);
+  }
+
+  path.reverse();
+  return path;
+}
+
+
