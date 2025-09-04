@@ -1,8 +1,23 @@
 body{
     background-color: #212121;
+    color: white;
 }
 
 #Map-Container svg{
-    width: 50%;
+    width: 70%;
     height: auto;
+}
+
+.path {
+  fill: none;
+  stroke: red; /* You can change this color */
+  stroke-width: 2px; /* You can change the thickness */
+  stroke-dasharray: 4;
+  animation: march 1s linear infinite;
+}
+
+@keyframes march {
+  to {
+    stroke-dashoffset: -8;
+  }
 }

@@ -25,3 +25,5 @@ projection logic
 in order to figure out in which diretion the room node needs to project
 we need to loop through every edge and figure out which edge has the shortest distance to the room node. We compare all the x and y distances, and take the smallest value. if x is shortest then it means the closest edge is vertical and we have to project left or right (depending if positive or negative) if y is the smallest then we need to project up or down
 
+todo
+- clean room and hallways naming pickup

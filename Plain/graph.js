@@ -1,5 +1,5 @@
 
-class Graph{
+export class Graph{
 
     constructor(totalNodes){
         this.totalNodes = totalNodes;
@@ -28,6 +28,27 @@ class Graph{
         return true;
     }
 
+    removeEdge(nodeA, nodeB) {
+    if (this.AdjacencyList.has(nodeA)) {
+        this.AdjacencyList.get(nodeA).delete(nodeB);
+    }
+    if (this.AdjacencyList.has(nodeB)) {
+        this.AdjacencyList.get(nodeB).delete(nodeA);
+    }
+}
+
+    removeNode(node) {
+        if (!this.AdjacencyList.has(node)) {
+            return;
+        }
+        // Remove all edges connected to this node
+        for (const neighbour of this.AdjacencyList.get(node).keys()) {
+            this.removeEdge(node, neighbour);
+        }
+        // Remove the node itself
+        this.AdjacencyList.delete(node);
+    }
+
     nodesList(){
         return this.AdjacencyList.keys();
     }
@@ -44,7 +65,7 @@ class Graph{
 
 }
 
-class MinPriorityQueue{
+export class MinPriorityQueue{
 
     constructor(){
         this.heap = [];
@@ -127,7 +148,7 @@ class MinPriorityQueue{
 }
 
 
-function dijkstra(graph,source){
+export function dijkstra(graph,source){
 
     const distance = new Map();
     const path = new Map();
@@ -166,7 +187,7 @@ function dijkstra(graph,source){
 
 }
 
-function reconstructPath(previous, source, target) {
+export function reconstructPath(previous, source, target) {
   const path = [];
   let node = target;
 

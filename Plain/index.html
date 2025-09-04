@@ -7,10 +7,21 @@
     <title>Langara Nav</title>
   </head>
   <body>
-      <h1>TEST</h1>
-      <div id="Map-Container">
-        
-      </div>
-      <script src="script.js"></script>
+    <h1>TEST</h1>
+    <div id="pathfinder-ui">
+    <label for="start-room">Start:</label>
+    <input type="text" id="start-room" list="room-list" placeholder="Type a room name">
+
+    <label for="end-room">End:</label>
+    <input type="text" id="end-room" list="room-list" placeholder="Type a room name">
+
+    <button id="find-path-btn" disabled>Find Path</button>
+  </div>
+  <datalist id="room-list"></datalist>
+  <div id="Map-Container">
+    
+  </div>
+  <!-- <script src="graph.js"></script> -->
+  <script type="module" src="script.js"></script>
   </body>
 </html>
