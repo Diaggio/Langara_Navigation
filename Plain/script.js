@@ -3,6 +3,10 @@ import { Graph, dijkstra, reconstructPath } from "./graph.js";
 let graph;
 let nodeMap;
 let jsonData;
+let hallwayEdgesForProjection = [];
+const svgCache = new Map;
+let currentPathSegments = [];
+let currentSegmentIndex = 0;
 
 function loadApp(){
   setUpEventListener();
@@ -10,63 +14,74 @@ function loadApp(){
 }
 
 function loadAssets() {
-  Promise.all([
-    // Fetch request 1: Get the SVG file as text
-    fetch("Images/A2FloorPlanBlank.svg").then((response) => response.text()),
+ 
+  fetch("data/manifest.json")
+    .then(response => response.json())
+    .then(manifest => {
+      const floorPromises = manifest.floor_files.map(filename =>
+        fetch(`data/${filename}`).then(response => response.json())
+      );
 
-    // Fetch request 2: Get the JSON file and parse it
-    fetch("../python/graph.json").then((response) => response.json()),
-  ])
-    .then(([svgData, loadedJson]) => {
-      // This block runs only after BOTH files have been successfully loaded.
+      const transitionsPromise = fetch("data/transitions.json").then(res => res.json());
 
-      // Step 1: Place the SVG map into the div
-      document.getElementById("Map-Container").innerHTML = svgData;
+      return Promise.all([transitionsPromise, ...floorPromises]);
+    })
+    .then(results => {
 
-      // Create a map for efficient node lookup (ID -> {x, y})
-      jsonData = loadedJson;
-      const nodes = jsonData.nodes
-      const edges = jsonData.edges
+      const transitionsJson = results[0];
+      const allFloorData = results.slice(1);
+
+      // --- Initialize our main data structures ---
       nodeMap = new Map();
-      for (const node of nodes) {
-        nodeMap.set(node.id, { x: node.x, y: node.y });
-      }
-
-      // Instantiate the graph
       graph = new Graph();
-      
+      let nodesForUI = []; // To collect all nodes for the dropdown list
 
-      // Add edges to the graph
-      for (const edge of edges) {
-        // Construct the full node IDs from the "from" and "to" properties
-        const fromId = `A2HallwayNode-${edge.from}`;
-        const toId = `A2HallwayNode-${edge.to}`;
+      // --- Process each floor's data file ---
+      for (const floorData of allFloorData) {
+        // Add all nodes from this floor to the nodeMap
+        for (const node of floorData.nodes) {
+          nodeMap.set(node.id, { x: node.x, y: node.y });
 
-        const nodeA = nodeMap.get(fromId);
-        const nodeB = nodeMap.get(toId);
+          if (node.id.includes("RoomNode")) {
+            nodesForUI.push(node.id.split('-')[1]);
+        }
+        }
+        
 
-        if (nodeA && nodeB) {
-          // Calculate the Euclidean distance for the edge weight
-          const weight = Math.sqrt(
-            Math.pow(nodeB.x - nodeA.x, 2) + Math.pow(nodeB.y - nodeA.y, 2)
-          );
-          graph.addEdge(fromId, toId, weight);
+        // Add all hallway edges from this floor to the graph and projection array
+        for (const edge of floorData.edges) {
+          const fromId = edge.from;
+          const toId = edge.to;
+          const nodeA = nodeMap.get(fromId);
+          const nodeB = nodeMap.get(toId);
+
+          if (nodeA && nodeB) {
+            graph.addEdge(fromId, toId, getDistance(nodeA, nodeB));
+            hallwayEdgesForProjection.push([
+              { id: fromId, ...nodeA },
+              { id: toId, ...nodeB },
+            ]);
+          }
         }
       }
 
-      const roomNames = nodes
-        .filter((node) => node.id.startsWith("A2RoomNode-"))
-        .map((node) => node.id.split("-")[1]);
+      // --- Process the transitions file ---
+      for (const transition of transitionsJson) {
+        graph.addEdge(transition.from, transition.to, transition.weight);
+      }
 
-      populateDatalist(roomNames);
+      // Populate the dropdown list with rooms from ALL floors
 
-      console.log("Graph built successfully:", graph);
+      populateDatalist(nodesForUI);
+      console.log("Unified graph built successfully with all floors:", graph);
 
-      drawNodes(nodes);
+      // Enable the button now that everything is ready
       document.getElementById("find-path-btn").disabled = false;
+
+      // --- Display the default starting map (without loading all SVGs) ---
+      displayFloor("campus"); 
     })
-    .catch((error) => {
-      // If either fetch fails, this will log an error
+    .catch(error => {
       console.error("Error loading assets:", error);
     });
 }
@@ -79,9 +94,7 @@ function setUpEventListener(){
         const endRoomValue = document.getElementById("end-room").value;
         
         if (startRoomValue && endRoomValue) {
-          const startId = `A2RoomNode-${startRoomValue}`;
-          const endId = `A2RoomNode-${endRoomValue}`;
-          handlePathRequest(startId, endId);
+          handlePathRequest(startRoomValue, endRoomValue);
 
         } else {
           alert("Please select a valid start and end room.");
@@ -89,6 +102,89 @@ function setUpEventListener(){
 
       });
 
+  const prevBtn = document.getElementById("prev-floor-btn");
+  const nextBtn = document.getElementById("next-floor-btn");
+
+  prevBtn.addEventListener("click", () => {
+    if (currentSegmentIndex > 0) {
+      currentSegmentIndex--;
+      const floorId = currentPathSegments[currentSegmentIndex].floor;
+      displayFloor(floorId); // Display the new floor's SVG and path
+      updateNavigationUI(); // Update the buttons and text
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentSegmentIndex < currentPathSegments.length - 1) {
+      currentSegmentIndex++;
+      const floorId = currentPathSegments[currentSegmentIndex].floor;
+      displayFloor(floorId); // Display the new floor's SVG and path
+      updateNavigationUI(); // Update the buttons and text
+    }
+  });
+
+}
+
+function displayFloor(floorId) {
+  const mapContainer = document.getElementById("Map-Container");
+
+  // First, check if we already have this SVG in our cache
+  if (svgCache.has(floorId)) {
+    mapContainer.innerHTML = svgCache.get(floorId);
+    drawPathForCurrentFloor(floorId); // Redraw path if it exists
+    return;
+  }
+
+  // If not in cache, fetch it
+  console.log(`floor id is ${floorId}`);
+  const svgUrl = `Images/${floorId}FloorPlanBlank.svg`; 
+  console.log(svgUrl);
+  fetch(svgUrl)
+    .then(response => response.text())
+    .then(svgData => {
+      // Store the fetched SVG in the cache for next time
+      svgCache.set(floorId, svgData);
+      mapContainer.innerHTML = svgData;
+      drawPathForCurrentFloor(floorId); // Draw path if it exists
+    });
+}
+
+// Helper to redraw the path when switching floors
+function drawPathForCurrentFloor(floorId) {
+  const segment = currentPathSegments.find(seg => seg.floor === floorId);
+  if (segment) {
+    drawPath(segment.path);
+    console.log(segment)
+  } else {
+    // If there's no path segment for this floor, clear any old path
+    const oldPath = document.querySelector("#Map-Container .path");
+    if (oldPath) oldPath.remove();
+  }
+}
+
+function updateNavigationUI() {
+  const navControls = document.getElementById("navigation-controls");
+  
+  // If there's no path or it's only on one floor, hide the controls.
+  if (currentPathSegments.length <= 1) {
+    navControls.style.display = "none";
+    return;
+  }
+
+  // Otherwise, show the controls.
+  navControls.style.display = "block";
+
+  const floorDisplay = document.getElementById("current-floor-display");
+  const prevBtn = document.getElementById("prev-floor-btn");
+  const nextBtn = document.getElementById("next-floor-btn");
+
+  // Update the text to show the current floor
+  const currentFloor = currentPathSegments[currentSegmentIndex].floor;
+  floorDisplay.textContent = `Floor ${currentFloor}`;
+
+  // Disable/enable buttons based on the current index
+  prevBtn.disabled = (currentSegmentIndex === 0);
+  nextBtn.disabled = (currentSegmentIndex === currentPathSegments.length - 1);
 }
 
 function drawNodes(nodesArray) {
@@ -120,7 +216,7 @@ function drawNodes(nodesArray) {
       newCircle.setAttribute("r", "3");
       newCircle.setAttribute("fill", "brown");
     }
-
+    console.log("here")
     if(node.id.includes("ProjectedNode")){
       newCircle.setAttribute("r", "3");
       newCircle.setAttribute("fill", "blue");
@@ -134,73 +230,106 @@ function drawNodes(nodesArray) {
 }
 
 function handlePathRequest(startId,endId){
-  console.log("Finding path from:", startId, "to:", endId);
-  const startPoint = nodeMap.get(startId);
-  const endPoint = nodeMap.get(endId);
+  const fullStartId = `${startId.substring(0, 2)}RoomNode-${startId}`;
+  const fullEndId = `${endId.substring(0, 2)}RoomNode-${endId}`;
 
-  if (!startPoint || !endPoint) {
-    console.error("Could not find coordinates for start or end room.");
+  console.log("Finding path from:", fullStartId, "to:", fullEndId);
+
+  const startPoint = nodeMap.get(fullStartId);
+  const endPoint = nodeMap.get(fullEndId);
+
+  if(!startPoint || !endPoint){
     return;
   }
-
-  const hallwayEdgesForProjection = [];
-
-  for (const edge of jsonData.edges) {
-  const fromId = `A2HallwayNode-${edge.from}`;
-  const toId = `A2HallwayNode-${edge.to}`;
-  const fromNode = nodeMap.get(fromId);
-  const toNode = nodeMap.get(toId);
-
-  if (fromNode && toNode) {
-    // Store the full node object, including the ID
-    hallwayEdgesForProjection.push([
-      { id: fromId, ...fromNode },
-      { id: toId, ...toNode },
-    ]);
-  }
-}
-
-  // Now you can call findClosestEdge
   const startProjection = findClosestEdge(startPoint, hallwayEdgesForProjection);
   const endProjection = findClosestEdge(endPoint, hallwayEdgesForProjection);
 
 
-
+  //this is for drawing the nodes on the map itself to make sure coordinates are correct
   const projectedNodesToDraw = [
     { id: "ProjectedNode-start", ...startProjection.closestPoint },
     { id: "ProjectedNode-end", ...endProjection.closestPoint },
   ];
 
-  drawNodes(projectedNodesToDraw);
 
-   // --- 2. Temporarily Modify the Graph ---
-  const tempStartId = "temp-start-node";
-  const tempEndId = "temp-end-node";
+   // add temp nodes representing the rooms for pathfinding
+  const tempStartId = "temp-projected-start-node";
+  const tempEndId = "temp-projected-end-node";
+  connectTemporaryNode(tempStartId, startProjection);
+  connectTemporaryNode(tempEndId, endProjection);
 
   // Add temporary nodes to nodeMap for coordinate lookup
   nodeMap.set(tempStartId, startProjection.closestPoint);
   nodeMap.set(tempEndId, endProjection.closestPoint);
 
+  graph.addNode(fullStartId);
+  graph.addNode(fullEndId);
+  graph.addEdge(fullStartId, tempStartId, startProjection.distance);
+  graph.addEdge(fullEndId, tempEndId, endProjection.distance);
+
   // Connect the temporary start and end nodes to the graph
-  connectTemporaryNode(tempStartId, startProjection);
-  connectTemporaryNode(tempEndId, endProjection);
 
   // --- 3. Run Dijkstra's Algorithm ---
-  const { path: previousNodes } = dijkstra(graph, tempStartId);
-  const pathIds = reconstructPath(previousNodes, tempStartId, tempEndId);
+  const { path: previousNodes } = dijkstra(graph, fullStartId);
+  const pathIds = reconstructPath(previousNodes, startId, fullEndId);
+  console.log(`Path ids ${pathIds}`)
+
+  const startFloor = startId.substring(0, 2);
+  const endFloor = endId.substring(0, 2);
+  currentPathSegments = []; // Clear old path
+  if (pathIds.length > 0) {
+ 
+    let currentSegment = { floor: startFloor, path: [] };
+    currentPathSegments.push(currentSegment);
+
+    for (const nodeId of pathIds) {
+      let floorOfNode;
+      // The temp nodes are no longer the start/end, so we simplify this
+      if (nodeId.startsWith("temp-projected")) {
+        // Find which room it's connected to, to determine its floor
+        const neighbors = Array.from(graph.getNeighbours(nodeId));
+        const roomNeighbor = neighbors.find(n => n[0].includes("RoomNode"));
+        floorOfNode = roomNeighbor ? roomNeighbor[0].substring(0, 2) : nodeId.substring(0, 2);
+      } else {
+        floorOfNode = nodeId.substring(0, 2);
+      }
+
+      if (floorOfNode !== currentSegment.floor) {
+        // Before switching, add the current node to the old segment if it's a transition point
+        // This ensures stairs/elevators appear on both floor paths
+        console.log(`node id for current segment ${nodeId}`);
+        currentSegment = { floor: floorOfNode, path: [] };
+        currentPathSegments.push(currentSegment);
+        // Start the new segment
+      } 
+
+      currentSegment.path.push(nodeId);
+     
+    }
+
+    console.log(currentPathSegments);
+
+    if (currentPathSegments.length > 0) {
+      currentSegmentIndex = 0; // Reset to the beginning of the path
+      const startingFloor = currentPathSegments[0].floor;
+      displayFloor(startingFloor);
+    }
+
+  }
 
   // --- 4. Draw the Resulting Path ---
-  drawPath(pathIds);
+    updateNavigationUI();
+    //drawNodes(projectedNodesToDraw);
+    //zoomToPath(pathIds);
 
-  // --- 5. Clean Up the Graph ---
-  graph.removeNode(tempStartId);
-  graph.removeNode(tempEndId);
-  nodeMap.delete(tempStartId);
-  nodeMap.delete(tempEndId);
-
-  // Restore the original edges that were split
-  restoreOriginalEdge(startProjection);
-  restoreOriginalEdge(endProjection);
+    // --- 5. Clean Up the Graph ---
+    graph.removeNode(tempStartId);
+    graph.removeNode(tempEndId);
+    graph.removeNode(fullStartId);
+    graph.removeNode(fullEndId);
+    // Restore the original edges that were split
+    restoreOriginalEdge(startProjection);
+    restoreOriginalEdge(endProjection);
 }
 
 function connectTemporaryNode(tempNodeId, projectionResult) {
@@ -221,6 +350,22 @@ function connectTemporaryNode(tempNodeId, projectionResult) {
 
   graph.addEdge(tempNodeId, nodeU_id, distToU);
   graph.addEdge(tempNodeId, nodeV_id, distToV);
+}
+
+function restoreOriginalEdge(projectionResult) {
+  // The projectionResult contains the original edge that was split.
+  const { closestEdge } = projectionResult;
+  const [nodeU, nodeV] = closestEdge;
+
+  // We already have the IDs from our improved data structure.
+  const nodeU_id = nodeU.id;
+  const nodeV_id = nodeV.id;
+
+  // Calculate the original weight of the edge (the distance between its endpoints).
+  const originalWeight = getDistance(nodeU, nodeV);
+
+  // Add the original edge back to the graph.
+  graph.addEdge(nodeU_id, nodeV_id, originalWeight);
 }
 
 
@@ -364,5 +509,36 @@ function findClosestEdge(point, edges) {
   };
 }
 
+/* function zoomToPath(pathIds) {
+  const svgElement = document.querySelector("#Map-Container svg");
+  if (!svgElement || pathIds.length === 0) return;
+
+  // Get the actual coordinate objects for each ID in the path
+  const pathPoints = pathIds.map(id => nodeMap.get(id));
+
+  // Find the min and max coordinates (the bounding box)
+  let minX = pathPoints[0].x;
+  let maxX = pathPoints[0].x;
+  let minY = pathPoints[0].y;
+  let maxY = pathPoints[0].y;
+
+  for (const point of pathPoints) {
+    minX = Math.min(minX, point.x);
+    maxX = Math.max(maxX, point.x);
+    minY = Math.min(minY, point.y);
+    maxY = Math.max(maxY, point.y);
+  }
+
+  // Add some padding so the path isn't touching the edges
+  const padding = 50; // Adjust this value as needed
+  minX -= padding;
+  minY -= padding;
+  const width = (maxX - minX) + (padding * 2);
+  const height = (maxY - minY) + (padding * 2);
+
+  const viewBoxValue = `${minX} ${minY} ${width} ${height}`;
+  svgElement.setAttribute("viewBox", viewBoxValue);
+}
+ */
 // Start the entire process
 loadApp();

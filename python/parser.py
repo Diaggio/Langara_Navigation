@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import json
 
-with open('../Plain/Images/A2FloorPlanNodes3.svg','r') as f:
+with open('../Plain/Images/A3FloorPlanNodes.svg','r') as f:
     svg_content = f.read()
 
 soup = BeautifulSoup(svg_content,"xml")
@@ -23,14 +23,15 @@ if graph_layer:
 
     for path in graph_layer.find_all("path"):
         id = path.get("id")
-        parts = id.split("-")
+        parts = id.split("__")
 
-        graph["edges"].append({
-            "id": id,
-            "from": parts[1],
-            "to": parts[2] 
-        })
+        if len(parts) == 3:
+            graph["edges"].append({
+                "id": id,
+                "from": parts[1],
+                "to": parts[2] 
+            })
         
 print(graph)
-with open("graph.json","w") as f:
+with open("A3Nodes.json","w") as f:
      json.dump(graph,f,indent=2)
