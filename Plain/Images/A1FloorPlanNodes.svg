@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
-   sodipodi:docname="A1FloorPlanBlank.svg"
+   sodipodi:docname="A1FloorPlanNodes.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.88465615"
-     inkscape:cx="523.36718"
-     inkscape:cy="467.41324"
+     inkscape:zoom="2.0035434"
+     inkscape:cx="289.48712"
+     inkscape:cy="251.30476"
      inkscape:window-width="1712"
      inkscape:window-height="1040"
      inkscape:window-x="0"
@@ -5327,6 +5327,13 @@
          d="M 145.977 956.231 L 144.466 956.231 L 144.466 954.723 L 142.801 954.723 L 142.801 956.231 L 141.293 956.231 L 141.293 957.898 L 142.801 957.898 L 142.801 959.406 L 144.466 959.406 L 144.466 957.898 L 145.977 957.898 Z"
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          clip-path="url(#clipPath1200)" />
+      <ellipse
+         style="fill:#2a0808;stroke:#000000;stroke-width:0.5"
+         id="path1"
+         cx="235.82466"
+         cy="265.13199"
+         rx="10.426332"
+         ry="8.3166676" />
     </g>
   </g>
 </svg>
