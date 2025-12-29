@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "A3RoomNode-A326a",
+      "x": 158.644,
+      "y": 393.87451
+    },
+    {
+      "id": "A3RoomNode-A326b",
+      "x": 158.644,
+      "y": 368.8985
+    },
+    {
+      "id": "A3Stairs-1",
+      "x": 202.28878,
+      "y": 414.83029999999997
+    },
+    {
+      "id": "A3HallwayNode-1",
+      "x": 152.04908,
+      "y": 414.93131
+    },
+    {
+      "id": "A3HallwayNode-2",
+      "x": 152.04908,
+      "y": 342.98991
+    }
+  ],
+  "edges": [
+    {
+      "id": "A3Edge__A3HallwayNode-1__A3Stairs-1",
+      "from": "A3HallwayNode-1",
+      "to": "A3Stairs-1"
+    },
+    {
+      "id": "A3Edge__A3HallwayNode-1__A3HallwayNode-2",
+      "from": "A3HallwayNode-1",
+      "to": "A3HallwayNode-2"
+    }
+  ]
+}

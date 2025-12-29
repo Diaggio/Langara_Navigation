@@ -43,6 +43,8 @@ desktop
 
 - glow different colours for ending and starting points 
     - maybe have an arrow at the end? or not to avoid direction issues
+- error for when only start or end field entered, highlight other box and display error that other field is required
+
 
 
 mobile
