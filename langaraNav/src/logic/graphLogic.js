@@ -160,7 +160,7 @@ export class MinPriorityQueue{
 }
 
 
-export function dijkstra(graph,source){
+export function dijkstra(graph,source,avoidType){
 
     const distance = new Map();
     const path = new Map();
@@ -183,8 +183,20 @@ export function dijkstra(graph,source){
             continue;
         }
 
+        
         for(const [neighbour,edgeWeight] of graph.getNeighbours(currentNode)){
-            let newDistance = currentDistance + edgeWeight;
+            //filtering for avoiding stairs
+            let travelCost = edgeWeight
+            
+            /*this is for smart routing, if it prioritizes elevators, then
+            taking the stairs would incur a huge penalty. But it also guarantees
+            that if no elevator only routes are available, it will return
+            a route rather than something emtpy */
+            if (avoidType && neighbour.includes(avoidType)) {
+                travelCost += 10000
+            }
+
+            let newDistance = currentDistance + travelCost;
             if(newDistance < distance.get(neighbour)){
                 distance.set(neighbour, newDistance);
                 path.set(neighbour, currentNode);

@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef,memo } from "react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 function MapDisplay(props) {
-  const { floorId, pathIds, nodeMap } = props;
+  const { floorId, endRoom, pathIds, nodeMap } = props;
   const [svgContent, setSvgContent] = useState("");
   // 1. Add state for the viewBox
   const [viewBox, setViewBox] = useState("0 0 1000 1000");
+  const transformRef = useRef(null);
 
   useEffect(function() {
     fetch("/Images/" + floorId + "FloorPlanBlank.svg")
@@ -19,6 +21,24 @@ function MapDisplay(props) {
         }
       });
   }, [floorId]);
+
+  useEffect(function() {
+    // Only zoom if we have a room and we are on the correct floor
+    const isCorrectFloor = endRoom && endRoom.substring(0, 2) === floorId;
+    
+    if (isCorrectFloor && transformRef.current) {
+      const { zoomToElement } = transformRef.current;
+      
+      // Delay briefly so the browser has time to finish drawing the new SVG
+      setTimeout(function() {
+        // endRoom "A238" becomes ID "room-A238"
+        // 3 is the zoom level (higher is closer)
+        zoomToElement("room-" + endRoom, 3); 
+      }, 200);
+    }
+  }, [endRoom, floorId, svgContent]);
+
+  
 
   //genrates the pathing animation svg controlled with CSS
   function generatePathD() {
@@ -40,23 +60,62 @@ function MapDisplay(props) {
     return d;
   }
 
-  return (
-    <div id="Map-Wrapper">
-      <div 
-        className="map-svg"
-        dangerouslySetInnerHTML={{ __html: svgContent }} 
-      />
+  useEffect(function() {
+    // A. Clean up: Remove highlight from any old rooms
+    const oldHighlights = document.querySelectorAll(".highlight-room");
+    for (const el of oldHighlights) {
+      el.classList.remove("highlight-room");
+    }
+    const roomIsOnThisFloor = endRoom && endRoom.substring(0, 2) === floorId;
 
-      {/* 3. Use the dynamic viewBox state here */}
-      <svg 
-        className="path-overlay" 
-        viewBox={viewBox} 
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <path className="path" d={generatePathD()} />
-      </svg>
-    </div>
+    // B. Add highlight to the target room
+    if (roomIsOnThisFloor) {
+      const el = document.getElementById("room-" + endRoom);
+      if (el) {
+        el.classList.add("highlight-room");
+        // C. Bring to front: SVG draws in order, so move to end of list
+        el.parentNode.appendChild(el);
+      }
+    }
+  }, [endRoom, svgContent,pathIds,floorId]);
+
+  return (
+    <TransformWrapper
+      ref={transformRef}
+      initialScale={1}
+      minScale={0.2}
+      maxScale={8}
+      centerOnInit={false}
+      limitToBounds={false}
+      alignmentAnimation={{ disabled: true }}
+      panning={{ velocityDisabled: true }}
+    >
+      <TransformComponent 
+      wrapperClass="debug-wrapper" 
+      contentClass="debug-content"
+      wrapperStyle={{ width: "100%", height: "100%" }} 
+      contentStyle={{ width: "auto", height: "auto" }}>
+        <div id="Map-Wrapper" style={{ position: "relative", display: "inline-block" }}>
+          <div 
+            className="map-svg" 
+            dangerouslySetInnerHTML={{ __html: svgContent }} 
+          />
+          <svg className="path-overlay" 
+          viewBox={viewBox} 
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none"
+          }}>
+            <path className="path" d={generatePathD()} />
+          </svg>
+        </div>
+      </TransformComponent>
+    </TransformWrapper>
   );
 }
 
-export default MapDisplay;
+export default memo(MapDisplay);

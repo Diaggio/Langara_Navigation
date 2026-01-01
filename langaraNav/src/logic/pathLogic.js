@@ -3,7 +3,7 @@ import { findClosestEdge, connectTemp,handleSameEdgeConnection,restoreOriginalEd
 
 
 
-export function getProcessedPath(startRoom, endRoom, graph, nodeMap, hallwayEdges) {
+export function getProcessedPath(startRoom, endRoom, graph, nodeMap, hallwayEdges, elevatorOnly) {
   //compose the strings to search the nodeMap
   const fullStartId = startRoom.substring(0, 2) + "RoomNode-" + startRoom;
   const fullEndId = endRoom.substring(0, 2) + "RoomNode-" + endRoom;
@@ -35,8 +35,9 @@ export function getProcessedPath(startRoom, endRoom, graph, nodeMap, hallwayEdge
   }
  
 
+  const avoidType = elevatorOnly ? "Stairs" : null
   //run dijkstra to find the shortest path
-  const result = dijkstra(graph, fullStartId);
+  const result = dijkstra(graph, fullStartId,avoidType);
   //take the path object/map, convert it to an array in the right order
   const pathIds = reconstructPath(result.path, fullStartId, fullEndId);
 

@@ -4,8 +4,6 @@ import { initializeAppData } from "./logic/dataLoader";
 import { getProcessedPath, segmentPathByFloor } from "./logic/pathLogic";
 import MapDisplay from "./components/MapDisplay";
 import SearchBar from "./components/SearchBar";
-import NavControls from "./components/NavControls";
-import ErrorMessage from "./components/ErrorMessage";
 
 function App() {
   // set up the needed states
@@ -21,6 +19,9 @@ function App() {
   const [pathSegments, setPathSegments] = useState([]);
   const [currentSegmentIndex, setCurrentSegmentIndex] = useState(0);
   const [error, setError] = useState("");
+  const [isDirectionsMode, setIsDirectionsMode] = useState(false);
+
+  const [elevatorOnly, setElevatorOnly] = useState(false);
 
   // Initialize Data
   useEffect(function () {
@@ -38,19 +39,55 @@ function App() {
   }, []);
 
   // Handler for searching
-  function handleSearch() {
+  function handleFindRoom(roomName,openDirections = true) {
     setError("");
-    const pathIds = getProcessedPath(startRoom, endRoom, graph, nodeMap, hallwayEdges);
-      //pathIds is the list containing the node ids for the path
-    if (pathIds) {
-      //get the path broken down per floor
+   
+    if (roomsList.includes(roomName)) {
+      setEndRoom(roomName);
+      setCurrentFloor(roomName.substring(0, 2));
+      setIsDirectionsMode(true);
+
+      if (openDirections) {
+      setIsDirectionsMode(true);
+      } else {
+        setIsDirectionsMode(false);
+      }
+    } else {
+      // 2. Set error if validation fails
+      setError("Room '" + roomName + "' not found.");
+    }
+  }
+
+  function handleGetDirections(start, end) {
+    setError("");
+
+    if(!roomsList.includes(start)) {
+      setError("Starting room not found.");
+      return;
+    }
+
+    setStartRoom(start);
+    setEndRoom(end);
+    // searchQuery is our Destination, originRoom is our Start
+    const pathIds = getProcessedPath(start, end, graph, nodeMap, hallwayEdges, elevatorOnly);
+    
+    if (pathIds && pathIds.length > 0) {
       const segments = segmentPathByFloor(pathIds);
       setPathSegments(segments);
       setCurrentSegmentIndex(0);
       setCurrentFloor(segments[0].floor);
     } else {
-      setError("Rooms not found or path unavailable.");
+      setError("Could not find a path from " + end);
     }
+  }
+
+  function handleCloseDirections() {
+    setIsDirectionsMode(false);
+    setStartRoom("");
+    setEndRoom("");
+    setPathSegments([]);
+    setElevatorOnly(false);
+    setError("");
   }
 
   function goToNext() {
@@ -71,41 +108,40 @@ function App() {
 
   //console.log("Current Segments:", pathSegments);
   return (
-    <div id="appContainer">
-      <h1>LangaraNAV</h1>
-
-      {/* load up search bar*/}    
+  <div id="appContainer">
+    
+    <div className="ui-overlay">
       <SearchBar 
-        startRoom={startRoom}
-        setStart={setStartRoom}
-        endRoom={endRoom}
-        setEnd={setEndRoom}
-        onSearch={handleSearch}
-        isLoading={!graph}
-        rooms={roomsList}
+          isDirectionsMode={isDirectionsMode}
+          onSearch={handleFindRoom}
+          onGetDirections={handleGetDirections}
+          rooms={roomsList}
+          isLoading={!graph}
+          onClose={handleCloseDirections}
+          elevatorOnly={elevatorOnly}
+          setElevatorOnly={setElevatorOnly}
+          floor={currentFloor}
+          index={currentSegmentIndex}
+          segmentCount={pathSegments.length}
+          onPrev={goToPrev}
+          onNext={goToNext}
+          errorMessage={error}
       />
 
-      <ErrorMessage message={error} />
-
-      {/* load up next/prev floor buttons if multiple floors in path*/} 
-      <NavControls 
-        onPrev={goToPrev}
-        onNext={goToNext}
-        floor={currentFloor}
-        index={currentSegmentIndex}
-        segmentCount={pathSegments.length}
-      />
-
-      {/* load up the map itself*/} 
-      <div id="Map-Container">
-        <MapDisplay 
-          floorId={currentFloor} 
-          pathIds={pathSegments[currentSegmentIndex]?.path} 
-          nodeMap={nodeMap}
-        />
-      </div>
     </div>
-  );
+
+    <div id="Map-Container">
+      <MapDisplay 
+        floorId={currentFloor} 
+        startRoom={startRoom}
+        endRoom={endRoom}
+        nodeMap={nodeMap}
+        pathIds={pathSegments[currentSegmentIndex]?.path} 
+      />
+    </div>
+
+  </div>
+);
 }
 
 export default App;

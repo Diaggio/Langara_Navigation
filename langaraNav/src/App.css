@@ -1,75 +1,255 @@
-body{
-    min-height: 100vh;
-    margin: 0;
-    background-color: #e0e0e0;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* --- 1. Global Resets --- */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #213547;
+  background-color: #e0e0e0;
 }
 
-
-#appContainer{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevents the whole page from scrolling */
 }
+
+/* --- 2. Layout Containers --- */
+#appContainer {
+  position: relative; /* Acts as the anchor for floating UI */
+  width: 100vw;
+  height: 100vh;
+  background-color: #e0e0e0;
+}
+.ui-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100; /* Stays on top of the map */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none; /* Allows clicks to pass through to the map in empty gaps */
+}
+
+/* Ensure UI elements catch clicks again */
+.ui-overlay > * {
+  pointer-events: auto; 
+}
+
+#pathfinder-ui {
+  display: flex;
+  position: relative;
+  flex-direction: column; /* Stack them vertically */
+  gap: 10px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 300px;
+}
+
+#pathfinder-ui input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.findPath-btn {
+  background-color: #1a73e8; /* Google Blue */
+  color: white;
+  font-weight: bold;
+}
+
+/* Container for Icons and X */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* The Elevator Toggle Circle */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.icon-btn:hover {
+  background-color: #f1f3f4;
+}
+
+/* Active "Elevator Mode" effect (Google Blue style) */
+.icon-btn.active {
+  background-color: #d2e1fc; /* Light Blue BG */
+  color: #1a73e8;           /* Bold Blue Icon */
+}
+
+/* The X Button */
+.header-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #70757a;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-close-btn:hover {
+  color: #202124;
+}
+
+/* Input layout */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.nav-divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.inline-nav-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.floor-display {
+  min-width: 70px;
+  text-align: center;
+}
+
+.inline-nav-controls button {
+  flex: 1; /* Makes Prev and Next buttons the same size */
+  padding: 8px !important;
+  background-color: white;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.inline-error {
+  color: #d93025; /* Professional "Google Error" Red */
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: #fce8e6; /* Very light red background */
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  border-left: 4px solid #d93025; /* Red "Warning" strip */
+}
+
+/* --- 3. The Map Box (Fixed Spilling) --- */
 #Map-Container {
-  /* Define the size of your rectangle */
-    width: 100vh;
-    height: 80vh;
- 
-
-  /* Card styling */
-  border-radius: 20px;
-  background: #e0e0e0;
-  box-shadow: 15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff;
-
-  /* This is the key property to crop the content */
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Lowest layer */
+  border-radius: 0;
+  box-shadow: none;
 }
 
-#Map-Container svg{
-   width: 100%;
-   height: auto;
-   object-fit: cover;
+/* THE WINDOW (Red) */
+.react-transform-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
+/* THE SAFE ZONE (Blue) - REMOVE Flexbox and 100% */
+.react-transform-component {
+ width: fit-content !important;
+  height: fit-content;
+  display: block;
+}
+
+/* .debug-wrapper {
+  border: 4px solid red;
+  box-sizing: border-box;
+} */
+
+/* THE SAFE ZONE (What the library thinks the map size is) */
+/* .debug-content {
+  border: 4px solid blue;
+} */
+
+/* 2. IMPORTANT: Remove the 100% width/height from here */
 #Map-Wrapper {
-    position: relative; /* So the path sits on top of the map */
-    width: 100%;
-    height: 100%;
+  display: inline-block; /* This makes the div the EXACT size of the SVG */
+  position: relative;
+  width: auto;
+  height: auto;
 }
 
-.map-svg {
-    width: 100%;
-    height: auto;
-    display: block;
+/* 3. Set the SVG to match the height of your container */
+.map-svg svg {
+  height: 70vh; 
+  width: auto;
+  display: block;
 }
 
 .path-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* So you can still click the map under the path */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensures path is always on top */
 }
 
 .path {
   fill: none;
-  stroke: red; /* You can change this color */
-  stroke-width: 2px; /* You can change the thickness */
+  stroke: red;
+  stroke-width: 3px;
   stroke-dasharray: 4;
   animation: march 1s linear infinite;
 }
 
 @keyframes march {
-  to {
-    stroke-dashoffset: -8;
-  }
+  to { stroke-dashoffset: -8; }
 }
 
+/* --- 6. Controls & Buttons --- */
+button {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0.6em 1.2em;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+button:hover { border-color: #646cff; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@keyframes roomPulse {
+  0% { fill-opacity: 1; }
+  50% { fill-opacity: 0.4; } /* We pulse the transparency instead */
+  100% { fill-opacity: 1; }
+}
+
+.highlight-room {
+  fill: #ff9800 !important;      /* Orange */
+  stroke: #e65100 !important;    /* Dark Orange border */
+  stroke-width: 2px !important;  /* Thick border */
+  animation: roomPulse 1.5s infinite ease-in-out;
+}
