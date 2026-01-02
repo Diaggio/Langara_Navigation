@@ -2,6 +2,8 @@
 
 LangaraNAV is an indoor navigation web application designed to help students navigate the buildings of Langara College. 
 
+Check it out here: https://langaranav.ca/
+
 This project uses custom-processed SVG floor plans and Dijkstra's algorithm to provide real-time pathfinding across multiple floors and buildings.
 
 ## 🚀 Features
