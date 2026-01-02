@@ -79,8 +79,6 @@ function MapDisplay(props) {
     }
   }, [endRoom, svgContent,pathIds,floorId]);
 
-  const startNode = (pathIds && pathIds.length > 0) ? nodeMap.get(pathIds[0]) : null;
-
   return (
     <TransformWrapper
       key={floorId + svgContent.length}
