@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import json
 
-with open('../Plain/Images/A3FloorPlanNodes.svg','r') as f:
+with open('../langaraNav/public/Images/A2floorplan.svg','r') as f:
     svg_content = f.read()
 
 soup = BeautifulSoup(svg_content,"xml")
@@ -33,5 +33,5 @@ if graph_layer:
             })
         
 print(graph)
-with open("A3Nodes.json","w") as f:
+with open("A2Nodes.json","w") as f:
      json.dump(graph,f,indent=2)

@@ -4,6 +4,7 @@ import { initializeAppData } from "./logic/dataLoader";
 import { getProcessedPath, segmentPathByFloor } from "./logic/pathLogic";
 import MapDisplay from "./components/MapDisplay";
 import SearchBar from "./components/SearchBar";
+import InfoCard from "./components/InfoCard";
 
 function App() {
   // set up the needed states
@@ -53,7 +54,7 @@ function App() {
         setIsDirectionsMode(false);
       }
     } else {
-      // 2. Set error if validation fails
+      // Set error if validation fails
       setError("Room '" + roomName + "' not found.");
     }
   }
@@ -129,6 +130,8 @@ function App() {
       />
 
     </div>
+
+    <InfoCard />
 
     <div id="Map-Container">
       <MapDisplay 

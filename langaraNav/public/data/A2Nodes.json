@@ -2,318 +2,1008 @@
   "nodes": [
     {
       "id": "A2Stairs-1",
-      "x": 71.130852,
-      "y": 73.819901
+      "x": 18.983561,
+      "y": 19.540228
     },
     {
       "id": "A2HallwayNode-2",
-      "x": 71.75,
-      "y": 47.490765
+      "x": 18.983829,
+      "y": 12.585905
     },
     {
       "id": "A2HallwayNode-3",
-      "x": 152.1375,
-      "y": 47.162766
+      "x": 40.252995,
+      "y": 12.499123
     },
     {
       "id": "A2HallwayNode-4",
-      "x": 228.487,
-      "y": 40.266666
+      "x": 60.453777,
+      "y": 10.674532
     },
     {
       "id": "A2HallwayNode-5",
-      "x": 152.1375,
-      "y": 148.96086
+      "x": 40.252995,
+      "y": 39.433167
     },
     {
       "id": "A2HallwayNode-6",
-      "x": 152.1375,
-      "y": 212.75
+      "x": 40.252995,
+      "y": 56.310688
     },
     {
       "id": "A2HallwayNode-7",
-      "x": 86.75,
-      "y": 212.75
+      "x": 24.010908,
+      "y": 56.248276
     },
     {
       "id": "A2HallwayNode-8",
-      "x": 90.75,
-      "y": 264.75
+      "x": 24.010908,
+      "y": 70.069008
     },
     {
       "id": "A2HallwayNode-9",
-      "x": 152.1375,
-      "y": 266.75
+      "x": 40.290966,
+      "y": 70.069008
     },
     {
       "id": "A2HallwayNode-10",
-      "x": 151.97688,
-      "y": 333.75
+      "x": 40.210499,
+      "y": 88.325233
     },
     {
       "id": "A2Stairs-2",
-      "x": 176.75,
-      "y": 405.75
+      "x": 46.765045,
+      "y": 107.37521
     },
     {
       "id": "A2HallwayNode-12",
-      "x": 151.97688,
-      "y": 431.95999
+      "x": 40.210499,
+      "y": 114.30993
     },
     {
       "id": "A2HallwayNode-13",
-      "x": 87.75,
-      "y": 433.75
+      "x": 23.508095,
+      "y": 114.64729
     },
     {
       "id": "A2HallwayNode-14",
-      "x": 86.75,
-      "y": 542.75
+      "x": 23.508095,
+      "y": 143.69759
     },
     {
       "id": "A2HallwayNode-15",
-      "x": 152.1375,
-      "y": 542.75
+      "x": 40.210491,
+      "y": 143.69759
     },
     {
       "id": "A2HallwayNode-16",
-      "x": 147.75,
-      "y": 741.75
+      "x": 40.339863,
+      "y": 197.33344
     },
     {
       "id": "A2HallwayNode-17",
-      "x": 48.75,
-      "y": 745.75
+      "x": 12.898421,
+      "y": 197.33344
     },
     {
       "id": "A2HallwayNode-18",
-      "x": 69.75,
-      "y": 715.75
+      "x": 18.190031,
+      "y": 189.14294
     },
     {
       "id": "A2HallwayNode-19",
-      "x": 404.75,
-      "y": 750.75
+      "x": 108.1483,
+      "y": 199.07231
     },
     {
       "id": "A2HallwayNode-20",
-      "x": 408.75,
-      "y": 781.75
+      "x": 108.1483,
+      "y": 206.85841
     },
     {
       "id": "A2HallwayNode-21",
-      "x": 488.75,
-      "y": 741.75
+      "x": 129.31494,
+      "y": 196.73949
     },
     {
       "id": "A2HallwayNode-22",
-      "x": 488.75,
-      "y": 711.75
+      "x": 129.31494,
+      "y": 188.3376
     },
     {
       "id": "A2HallwayNode-23",
-      "x": 404.75,
-      "y": 468.75
+      "x": 108.13079,
+      "y": 124.51487
     },
     {
       "id": "A2HallwayNode-24",
-      "x": 475.75,
-      "y": 462.75
+      "x": 127.82936,
+      "y": 121.10443
     },
     {
       "id": "A2HallwayNode-25",
-      "x": 477.75,
-      "y": 382.75
+      "x": 124.54702,
+      "y": 100.39777
     },
     {
       "id": "A2HallwayNode-26",
-      "x": 406.75,
-      "y": 377.75
+      "x": 108.17863,
+      "y": 100.39777
     },
     {
       "id": "A2Stairs-3",
-      "x": 377.75,
-      "y": 404.75
+      "x": 99.946228,
+      "y": 107.11063
     },
     {
       "id": "A2HallwayNode-28",
-      "x": 404.75,
-      "y": 331.75
+      "x": 108.13071,
+      "y": 88.060646
     },
     {
       "id": "A2HallwayNode-29",
-      "x": 305.061,
-      "y": 332.75
+      "x": 80.904846,
+      "y": 88.304665
     },
     {
       "id": "A2HallwayNode-30",
-      "x": 305.75,
-      "y": 282.75
+      "x": 80.896255,
+      "y": 74.831497
     },
     {
       "id": "A2HallwayNode-31",
-      "x": 251.7175,
-      "y": 332.75
+      "x": 66.600182,
+      "y": 88.304665
     },
     {
       "id": "A2HallwayNode-32",
-      "x": 251.75,
-      "y": 282.75
+      "x": 66.608772,
+      "y": 74.831497
     },
     {
       "id": "A2HallwayNode-33",
-      "x": 404.75,
-      "y": 150.75
+      "x": 108.11648,
+      "y": 39.68145
     },
     {
       "id": "A2HallwayNode-34",
-      "x": 323.75,
-      "y": 149.75
+      "x": 86.449982,
+      "y": 39.560589
     },
     {
       "id": "A2HallwayNode-35",
-      "x": 231.75,
-      "y": 149.51443
+      "x": 56.104961,
+      "y": 39.41251
     },
     {
       "id": "A2HallwayNode-36",
-      "x": 324.75,
-      "y": 209.75
+      "x": 86.114517,
+      "y": 55.516941
     },
     {
       "id": "A2HallwayNode-37",
-      "x": 231.75,
-      "y": 209.75
+      "x": 61.916676,
+      "y": 55.562214
     },
     {
       "id": "A2HallwayNode-38",
-      "x": 212.05051,
-      "y": 100.75433
+      "x": 56.104961,
+      "y": 26.678539
     },
     {
       "id": "A2HallwayNode-39",
-      "x": 405.75,
-      "y": 49.75
+      "x": 108.0971,
+      "y": 13.14836
     },
     {
       "id": "A2HallwayNode-40",
-      "x": 483.75,
-      "y": 49.75
+      "x": 128.4593,
+      "y": 13.183661
     },
     {
       "id": "A2HallwayNode-41",
-      "x": 484.75,
-      "y": 74.75
+      "x": 128.46205,
+      "y": 19.779127
     },
     {
       "id": "A2HallwayNode-42",
-      "x": 278.75,
-      "y": 332.75
+      "x": 73.75251,
+      "y": 88.304665
     },
     {
       "id": "A2Elevator",
-      "x": 278.75,
-      "y": 322.54333
+      "x": 73.75251,
+      "y": 85.360138
     },
     {
       "id": "A2HallwayNode-43",
-      "x": 151.97688,
-      "y": 405.75
+      "x": 40.210499,
+      "y": 107.37521
+    },
+    {
+      "id": "A2HallwayNode-44",
+      "x": 40.252995,
+      "y": 10.51475
+    },
+    {
+      "id": "A2HallwayNode-45",
+      "x": 40.339863,
+      "y": 199.07231
+    },
+    {
+      "id": "A2HallwayNode-46",
+      "x": 108.1483,
+      "y": 196.73949
+    },
+    {
+      "id": "A2HallwayNode-47",
+      "x": 131.86952,
+      "y": 197.6312
+    },
+    {
+      "id": "A2HallwayNode-48",
+      "x": 135.37772,
+      "y": 197.65186
+    },
+    {
+      "id": "A2HallwayNode-49",
+      "x": 127.82936,
+      "y": 103.87498
+    },
+    {
+      "id": "A2HallwayNode-50",
+      "x": 134.85927,
+      "y": 11.62789
+    },
+    {
+      "id": "A2HallwayNode-51",
+      "x": 16.772217,
+      "y": 11.397725
+    },
+    {
+      "id": "A2HallwayNode-52",
+      "x": 13.45036,
+      "y": 11.397725
+    },
+    {
+      "id": "A2HallwayNode-53",
+      "x": 123.86014,
+      "y": 124.49793
+    },
+    {
+      "id": "A2HallwayNode-54",
+      "x": 128.4593,
+      "y": 11.62789
+    },
+    {
+      "id": "A2HallwayNode-55",
+      "x": 18.190031,
+      "y": 197.20076
+    },
+    {
+      "id": "A2HallwayNode-56",
+      "x": 108.13071,
+      "y": 107.11063
+    },
+    {
+      "id": "A2HallwayNode-57",
+      "x": 61.916676,
+      "y": 39.433167
     },
     {
       "id": "A2RoomNode-A238",
-      "x": 91.0,
-      "y": 57.0
+      "x": 24.077053,
+      "y": 15.081231
     },
     {
       "id": "A2RoomNode-A239",
-      "x": 112.0,
-      "y": 57.0
+      "x": 29.633295,
+      "y": 15.081231
     },
     {
       "id": "A2RoomNode-A240a",
-      "x": 44.0,
-      "y": 43.0
+      "x": 11.641652,
+      "y": 11.377069
     },
     {
       "id": "A2RoomNode-A240b",
-      "x": 53.5769,
-      "y": 39.742764
+      "x": 14.175537,
+      "y": 10.51526
     },
     {
       "id": "A2RoomNode-A240c",
-      "x": 73.0,
-      "y": 40.0
+      "x": 19.31456,
+      "y": 10.58332
     },
     {
       "id": "A2RoomNode-A240d",
-      "x": 93.0,
-      "y": 40.0
+      "x": 24.606218,
+      "y": 10.58332
     },
     {
       "id": "A2RoomNode-A240e",
-      "x": 112.0,
-      "y": 39.0
+      "x": 29.633295,
+      "y": 10.318737
     },
     {
       "id": "A2RoomNode-A241b",
-      "x": 197.0,
-      "y": 49.0
+      "x": 52.122852,
+      "y": 12.964567
     },
     {
       "id": "A2RoomNode-A241c",
-      "x": 231.0,
-      "y": 30.0
+      "x": 61.118671,
+      "y": 7.93749
     },
     {
       "id": "A2RoomNode-A241d",
-      "x": 212.0,
-      "y": 30.0
+      "x": 56.091595,
+      "y": 7.93749
     },
     {
       "id": "A2RoomNode-A241e",
-      "x": 193.0,
-      "y": 31.0
+      "x": 51.064518,
+      "y": 8.2020731
     },
     {
       "id": "A2RoomNode-A241f",
-      "x": 172.0,
-      "y": 30.0
+      "x": 45.508278,
+      "y": 7.93749
     },
     {
       "id": "A2RoomNode-A241a",
-      "x": 173.0,
-      "y": 49.0
+      "x": 45.772858,
+      "y": 12.964567
     },
     {
       "id": "A2RoomNode-A240f",
-      "x": 133.0,
-      "y": 40.0
+      "x": 35.189541,
+      "y": 10.58332
     },
     {
       "id": "A2RoomNode-A242",
-      "x": 152.0,
-      "y": 31.0
+      "x": 40.216618,
+      "y": 8.2020731
     },
     {
       "id": "A2RoomNode-A247a",
-      "x": 240.0,
-      "y": 34.0
+      "x": 63.49992,
+      "y": 8.995822
     },
     {
       "id": "A2RoomNode-A247b",
-      "x": 219.0,
-      "y": 49.0
+      "x": 57.943676,
+      "y": 12.964567
     },
     {
       "id": "A2RoomNode-A244a",
-      "x": 161.0,
-      "y": 91.0
+      "x": 42.597862,
+      "y": 24.077053
     },
     {
       "id": "A2RoomNode-A244",
-      "x": 180.0,
-      "y": 141.0
+      "x": 47.624939,
+      "y": 37.306202
+    },
+    {
+      "id": "A2RoomNode-A243",
+      "x": 56.105125,
+      "y": 25.791147
+    },
+    {
+      "id": "A2RoomNode-A245",
+      "x": 56.881748,
+      "y": 28.839544
+    },
+    {
+      "id": "A2RoomNode-A246",
+      "x": 56.881748,
+      "y": 34.395786
+    },
+    {
+      "id": "A2RoomNode-A236",
+      "x": 19.625341,
+      "y": 20.372889
+    },
+    {
+      "id": "A2RoomNode-A2437",
+      "x": 39.158283,
+      "y": 35.7187
+    },
+    {
+      "id": "A2RoomNode-A257",
+      "x": 44.449944,
+      "y": 41.274944
+    },
+    {
+      "id": "A2RoomNode-A235",
+      "x": 39.158283,
+      "y": 46.831184
+    },
+    {
+      "id": "A2RoomNode-A234",
+      "x": 22.754139,
+      "y": 55.827011
+    },
+    {
+      "id": "A2RoomNode-A231",
+      "x": 24.077053,
+      "y": 70.379082
+    },
+    {
+      "id": "A2RoomNode-A230",
+      "x": 35.454121,
+      "y": 67.733246
+    },
+    {
+      "id": "A2RoomNode-A230a",
+      "x": 35.454121,
+      "y": 61.912422
+    },
+    {
+      "id": "A2RoomNode-A229",
+      "x": 38.494839,
+      "y": 80.43454
+    },
+    {
+      "id": "A2RoomNode-A223",
+      "x": 38.461273,
+      "y": 99.604912
+    },
+    {
+      "id": "A2RoomNode-A219",
+      "x": 22.489555,
+      "y": 116.94569
+    },
+    {
+      "id": "A2RoomNode-A218a",
+      "x": 22.489555,
+      "y": 137.84775
+    },
+    {
+      "id": "A2RoomNode-A218",
+      "x": 22.489555,
+      "y": 143.93315
+    },
+    {
+      "id": "A2RoomNode-A217",
+      "x": 38.62912,
+      "y": 147.10815
+    },
+    {
+      "id": "A2RoomNode-A221",
+      "x": 37.835369,
+      "y": 139.9644
+    },
+    {
+      "id": "A2RoomNode-A222a",
+      "x": 37.835369,
+      "y": 131.76233
+    },
+    {
+      "id": "A2RoomNode-A222b",
+      "x": 37.570786,
+      "y": 126.99984
+    },
+    {
+      "id": "A2RoomNode-A222c",
+      "x": 37.835369,
+      "y": 121.4436
+    },
+    {
+      "id": "A2RoomNode-A216",
+      "x": 38.364536,
+      "y": 185.2081
+    },
+    {
+      "id": "A2RoomNode-A215",
+      "x": 19.31456,
+      "y": 188.3831
+    },
+    {
+      "id": "A2RoomNode-A201a",
+      "x": 11.641652,
+      "y": 197.11433
+    },
+    {
+      "id": "A2RoomNode-A201b",
+      "x": 14.022899,
+      "y": 198.96642
+    },
+    {
+      "id": "A2RoomNode-A201c",
+      "x": 19.31456,
+      "y": 198.96642
+    },
+    {
+      "id": "A2RoomNode-A201d",
+      "x": 24.606218,
+      "y": 198.96642
+    },
+    {
+      "id": "A2RoomNode-A201e",
+      "x": 29.897879,
+      "y": 198.96642
+    },
+    {
+      "id": "A2RoomNode-A201f",
+      "x": 34.924957,
+      "y": 198.96642
+    },
+    {
+      "id": "A2RoomNode-A214",
+      "x": 23.018721,
+      "y": 193.93935
+    },
+    {
+      "id": "A2RoomNode-A295",
+      "x": 37.570786,
+      "y": 192.61642
+    },
+    {
+      "id": "A2RoomNode-A202a",
+      "x": 40.481197,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A202b",
+      "x": 46.566608,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A202c",
+      "x": 53.445766,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A203",
+      "x": 60.324924,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A204",
+      "x": 67.997833,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A205",
+      "x": 74.347824,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A206",
+      "x": 80.697815,
+      "y": 200.8185
+    },
+    {
+      "id": "A2RoomNode-A207",
+      "x": 88.10614,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A208",
+      "x": 95.514465,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A209",
+      "x": 102.6582,
+      "y": 201.08308
+    },
+    {
+      "id": "A2RoomNode-A264a",
+      "x": 113.77069,
+      "y": 198.70183
+    },
+    {
+      "id": "A2RoomNode-A264b",
+      "x": 118.79777,
+      "y": 198.70183
+    },
+    {
+      "id": "A2RoomNode-A264c",
+      "x": 124.08942,
+      "y": 198.70183
+    },
+    {
+      "id": "A2RoomNode-A264d",
+      "x": 129.1165,
+      "y": 198.70183
+    },
+    {
+      "id": "A2RoomNode-A264e",
+      "x": 134.40816,
+      "y": 198.70183
+    },
+    {
+      "id": "A2RoomNode-A264f",
+      "x": 136.78941,
+      "y": 197.64349
+    },
+    {
+      "id": "A2RoomNode-A266a",
+      "x": 128.32275,
+      "y": 187.56419
+    },
+    {
+      "id": "A2RoomNode-A263",
+      "x": 121.17902,
+      "y": 193.93935
+    },
+    {
+      "id": "A2RoomNode-A212b",
+      "x": 101.33529,
+      "y": 196.84975
+    },
+    {
+      "id": "A2RoomNode-A212",
+      "x": 86.254059,
+      "y": 197.37892
+    },
+    {
+      "id": "A2RoomNode-A211",
+      "x": 82.814476,
+      "y": 197.11433
+    },
+    {
+      "id": "A2RoomNode-A210",
+      "x": 46.831192,
+      "y": 197.11433
+    },
+    {
+      "id": "A2RoomNode-A266",
+      "x": 109.80195,
+      "y": 185.47269
+    },
+    {
+      "id": "A2RoomNode-A267",
+      "x": 109.53736,
+      "y": 168.80396
+    },
+    {
+      "id": "A2RoomNode-A268",
+      "x": 109.53736,
+      "y": 165.62895
+    },
+    {
+      "id": "A2RoomNode-A268_2",
+      "x": 109.80195,
+      "y": 152.13522
+    },
+    {
+      "id": "A2RoomNode-A268a",
+      "x": 133.08525,
+      "y": 149.4894
+    },
+    {
+      "id": "A2RoomNode-A268a_2",
+      "x": 142.08107,
+      "y": 145.78523
+    },
+    {
+      "id": "A2RoomNode-A273",
+      "x": 127.26442,
+      "y": 123.56026
+    },
+    {
+      "id": "A2RoomNode-A271",
+      "x": 109.53736,
+      "y": 127.52901
+    },
+    {
+      "id": "A2RoomNode-A272",
+      "x": 109.53736,
+      "y": 121.97276
+    },
+    {
+      "id": "A2RoomNode-A274",
+      "x": 128.85191,
+      "y": 104.77486
+    },
+    {
+      "id": "A2RoomNode-A275",
+      "x": 127.79359,
+      "y": 101.07071
+    },
+    {
+      "id": "A2RoomNode-A272_2",
+      "x": 109.53736,
+      "y": 103.45195
+    },
+    {
+      "id": "A2RoomNode-A276",
+      "x": 109.53736,
+      "y": 97.366547
+    },
+    {
+      "id": "A2RoomNode-A254",
+      "x": 103.71654,
+      "y": 71.701996
+    },
+    {
+      "id": "A2RoomNode-A277",
+      "x": 109.53736,
+      "y": 55.297848
+    },
+    {
+      "id": "A2RoomNode-A284",
+      "x": 109.53736,
+      "y": 39.687447
+    },
+    {
+      "id": "A2RoomNode-A253",
+      "x": 103.45195,
+      "y": 41.539524
+    },
+    {
+      "id": "A2RoomNode-A251",
+      "x": 95.779045,
+      "y": 37.570782
+    },
+    {
+      "id": "A2RoomNode-A250",
+      "x": 105.56862,
+      "y": 12.435399
+    },
+    {
+      "id": "A2RoomNode-A283",
+      "x": 127.79359,
+      "y": 20.902056
+    },
+    {
+      "id": "A2RoomNode-A290",
+      "x": 123.56026,
+      "y": 14.552063
+    },
+    {
+      "id": "A2RoomNode-A289",
+      "x": 118.2686,
+      "y": 14.816646
+    },
+    {
+      "id": "A2RoomNode-A291f",
+      "x": 136.78941,
+      "y": 11.64165
+    },
+    {
+      "id": "A2RoomNode-A291e",
+      "x": 134.67274,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A291d",
+      "x": 129.38109,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A291c",
+      "x": 123.56026,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A291b",
+      "x": 118.00402,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A291a",
+      "x": 112.97694,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A291",
+      "x": 107.94987,
+      "y": 10.583317
+    },
+    {
+      "id": "A2RoomNode-A247",
+      "x": 83.079063,
+      "y": 37.835365
+    },
+    {
+      "id": "A2RoomNode-A255",
+      "x": 83.079063,
+      "y": 41.539524
+    },
+    {
+      "id": "A2RoomNode-A252",
+      "x": 88.37072,
+      "y": 37.306202
+    },
+    {
+      "id": "A2RoomNode-A247_2",
+      "x": 65.351997,
+      "y": 37.570782
+    },
+    {
+      "id": "A2RoomNode-A255_2",
+      "x": 65.351997,
+      "y": 41.804108
+    },
+    {
+      "id": "A2RoomNode-A254_2",
+      "x": 87.841553,
+      "y": 54.239513
+    },
+    {
+      "id": "A2RoomNode-A254a",
+      "x": 86.783226,
+      "y": 57.149929
+    },
+    {
+      "id": "A2RoomNode-A256a",
+      "x": 61.647839,
+      "y": 57.149929
+    },
+    {
+      "id": "A2RoomNode-A256",
+      "x": 60.854092,
+      "y": 53.974934
+    },
+    {
+      "id": "A2RoomNode-A249",
+      "x": 84.137398,
+      "y": 22.22497
+    },
+    {
+      "id": "A2RoomNode-A250a",
+      "x": 92.60405,
+      "y": 16.668726
+    },
+    {
+      "id": "A2RoomNode-A250b",
+      "x": 92.60405,
+      "y": 11.377067
+    },
+    {
+      "id": "A2RoomNode-A248",
+      "x": 84.401978,
+      "y": 3.9687424
+    },
+    {
+      "id": "A2RoomNode-A247_3",
+      "x": 63.235336,
+      "y": 11.64165
+    },
+    {
+      "id": "A2RoomNode-A256_2",
+      "x": 42.333279,
+      "y": 72.231155
+    },
+    {
+      "id": "A2RoomNode-A227",
+      "x": 61.647839,
+      "y": 90.751968
+    },
+    {
+      "id": "A2RoomNode-A228c",
+      "x": 41.804115,
+      "y": 93.926964
+    },
+    {
+      "id": "A2RoomNode-A228b",
+      "x": 41.804115,
+      "y": 98.160294
+    },
+    {
+      "id": "A2RoomNode-A228a",
+      "x": 41.804115,
+      "y": 102.6582
+    },
+    {
+      "id": "A2RoomNode-A228",
+      "x": 53.974934,
+      "y": 90.751968
+    },
+    {
+      "id": "A2RoomNode-A226",
+      "x": 67.204079,
+      "y": 116.41652
+    },
+    {
+      "id": "A2RoomNode-A225",
+      "x": 86.783226,
+      "y": 91.016556
+    },
+    {
+      "id": "A2RoomNode-A224",
+      "x": 103.45195,
+      "y": 90.751968
+    },
+    {
+      "id": "A2RoomNode-A279",
+      "x": 116.15194,
+      "y": 66.674911
+    },
+    {
+      "id": "A2RoomNode-A267b",
+      "x": 125.67693,
+      "y": 174.09561
+    },
+    {
+      "id": "A2RoomNode-A267a",
+      "x": 125.67693,
+      "y": 169.5977
+    },
+    {
+      "id": "A2RoomNode-A279a",
+      "x": 111.91861,
+      "y": 73.554077
+    },
+    {
+      "id": "A2RoomNode-A279b",
+      "x": 115.09361,
+      "y": 73.554077
+    },
+    {
+      "id": "A2RoomNode-A279c",
+      "x": 118.2686,
+      "y": 73.554077
+    },
+    {
+      "id": "A2RoomNode-A279d",
+      "x": 121.17902,
+      "y": 73.554077
+    },
+    {
+      "id": "A2RoomNode-A279e",
+      "x": 124.61859,
+      "y": 73.554077
+    },
+    {
+      "id": "A2RoomNode-A279h",
+      "x": 115.09361,
+      "y": 70.379082
+    },
+    {
+      "id": "A2RoomNode-A279i",
+      "x": 115.09361,
+      "y": 67.468658
+    },
+    {
+      "id": "A2RoomNode-A277a",
+      "x": 112.44778,
+      "y": 58.20826
+    },
+    {
+      "id": "A2RoomNode-A277b",
+      "x": 116.68111,
+      "y": 58.20826
+    },
+    {
+      "id": "A2RoomNode-A277c",
+      "x": 116.68111,
+      "y": 56.987518
+    },
+    {
+      "id": "A2RoomNode-A280",
+      "x": 128.32275,
+      "y": 55.033264
+    },
+    {
+      "id": "A2RoomNode-A280a",
+      "x": 127.26442,
+      "y": 47.624935
+    },
+    {
+      "id": "A2RoomNode-A282",
+      "x": 134.93733,
+      "y": 56.091595
+    },
+    {
+      "id": "A2RoomNode-A278",
+      "x": 112.71236,
+      "y": 52.452904
+    },
+    {
+      "id": "A2RoomNode-A277d",
+      "x": 120.12068,
+      "y": 57.149929
+    },
+    {
+      "id": "A2RoomNode-A277e",
+      "x": 124.35401,
+      "y": 57.149929
     }
   ],
   "edges": [
@@ -323,8 +1013,8 @@
       "to": "A2HallwayNode-3"
     },
     {
-      "id": "A2Edge__A2HallwayNode-3__A2HallwayNode-4",
-      "from": "A2HallwayNode-3",
+      "id": "A2Edge__A2HallwayNode-44__A2HallwayNode-4",
+      "from": "A2HallwayNode-44",
       "to": "A2HallwayNode-4"
     },
     {
@@ -341,11 +1031,6 @@
       "id": "A2Edge__A2HallwayNode-6__A2HallwayNode-7",
       "from": "A2HallwayNode-6",
       "to": "A2HallwayNode-7"
-    },
-    {
-      "id": "A2Edge__A2HallwayNode-5__A2HallwayNode-35",
-      "from": "A2HallwayNode-5",
-      "to": "A2HallwayNode-35"
     },
     {
       "id": "A2Edge__A2HallwayNode-6__A2HallwayNode-9",
@@ -366,6 +1051,256 @@
       "id": "A2Edge__A2HallwayNode-43__A2Stairs-2",
       "from": "A2HallwayNode-43",
       "to": "A2Stairs-2"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-3__A2HallwayNode-44",
+      "from": "A2HallwayNode-3",
+      "to": "A2HallwayNode-44"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-7__A2HallwayNode-8",
+      "from": "A2HallwayNode-7",
+      "to": "A2HallwayNode-8"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-8__A2HallwayNode-9",
+      "from": "A2HallwayNode-8",
+      "to": "A2HallwayNode-9"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-43__A2HallwayNode-12",
+      "from": "A2HallwayNode-43",
+      "to": "A2HallwayNode-12"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-12__A2HallwayNode-13",
+      "from": "A2HallwayNode-12",
+      "to": "A2HallwayNode-13"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-13__A2HallwayNode-14",
+      "from": "A2HallwayNode-13",
+      "to": "A2HallwayNode-14"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-14__A2HallwayNode-15",
+      "from": "A2HallwayNode-14",
+      "to": "A2HallwayNode-15"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-12__A2HallwayNode-15",
+      "from": "A2HallwayNode-12",
+      "to": "A2HallwayNode-15"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-15__A2HallwayNode-16",
+      "from": "A2HallwayNode-15",
+      "to": "A2HallwayNode-16"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-16__A2HallwayNode-55",
+      "from": "A2HallwayNode-16",
+      "to": "A2HallwayNode-55"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-55__A2HallwayNode-17",
+      "from": "A2HallwayNode-55",
+      "to": "A2HallwayNode-17"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-55__A2HallwayNode-18",
+      "from": "A2HallwayNode-55",
+      "to": "A2HallwayNode-18"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-16__A2HallwayNode-45",
+      "from": "A2HallwayNode-16",
+      "to": "A2HallwayNode-45"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-45__A2HallwayNode-19",
+      "from": "A2HallwayNode-45",
+      "to": "A2HallwayNode-19"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-19__A2HallwayNode-20",
+      "from": "A2HallwayNode-19",
+      "to": "A2HallwayNode-20"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-19__A2HallwayNode-46",
+      "from": "A2HallwayNode-19",
+      "to": "A2HallwayNode-46"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-46__A2HallwayNode-21",
+      "from": "A2HallwayNode-46",
+      "to": "A2HallwayNode-21"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-21__A2HallwayNode-47",
+      "from": "A2HallwayNode-21",
+      "to": "A2HallwayNode-47"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-47__A2HallwayNode-48",
+      "from": "A2HallwayNode-47",
+      "to": "A2HallwayNode-48"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-21__A2HallwayNode-22",
+      "from": "A2HallwayNode-21",
+      "to": "A2HallwayNode-22"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-46__A2HallwayNode-23",
+      "from": "A2HallwayNode-46",
+      "to": "A2HallwayNode-23"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-23__A2HallwayNode-53",
+      "from": "A2HallwayNode-23",
+      "to": "A2HallwayNode-53"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-53__A2HallwayNode-24",
+      "from": "A2HallwayNode-53",
+      "to": "A2HallwayNode-24"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-23__A2HallwayNode-56",
+      "from": "A2HallwayNode-23",
+      "to": "A2HallwayNode-56"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-56__A2Stairs-3",
+      "from": "A2HallwayNode-56",
+      "to": "A2Stairs-3"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-24__A2HallwayNode-49",
+      "from": "A2HallwayNode-24",
+      "to": "A2HallwayNode-49"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-49__A2HallwayNode-25",
+      "from": "A2HallwayNode-49",
+      "to": "A2HallwayNode-25"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-25__A2HallwayNode-26",
+      "from": "A2HallwayNode-25",
+      "to": "A2HallwayNode-26"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-56__A2HallwayNode-26",
+      "from": "A2HallwayNode-56",
+      "to": "A2HallwayNode-26"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-26__A2HallwayNode-28",
+      "from": "A2HallwayNode-26",
+      "to": "A2HallwayNode-28"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-28__A2HallwayNode-33",
+      "from": "A2HallwayNode-28",
+      "to": "A2HallwayNode-33"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-33__A2HallwayNode-39",
+      "from": "A2HallwayNode-33",
+      "to": "A2HallwayNode-39"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-39__A2HallwayNode-40",
+      "from": "A2HallwayNode-39",
+      "to": "A2HallwayNode-40"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-40__A2HallwayNode-54",
+      "from": "A2HallwayNode-40",
+      "to": "A2HallwayNode-54"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-54__A2HallwayNode-50",
+      "from": "A2HallwayNode-54",
+      "to": "A2HallwayNode-50"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-40__A2HallwayNode-41",
+      "from": "A2HallwayNode-40",
+      "to": "A2HallwayNode-41"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-33__A2HallwayNode-34",
+      "from": "A2HallwayNode-33",
+      "to": "A2HallwayNode-34"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-34__A2HallwayNode-36",
+      "from": "A2HallwayNode-34",
+      "to": "A2HallwayNode-36"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-5__A2HallwayNode-35",
+      "from": "A2HallwayNode-5",
+      "to": "A2HallwayNode-35"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-35__A2HallwayNode-38",
+      "from": "A2HallwayNode-35",
+      "to": "A2HallwayNode-38"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-35__A2HallwayNode-57",
+      "from": "A2HallwayNode-35",
+      "to": "A2HallwayNode-57"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-57__A2HallwayNode-37",
+      "from": "A2HallwayNode-57",
+      "to": "A2HallwayNode-37"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-57__A2HallwayNode-34",
+      "from": "A2HallwayNode-57",
+      "to": "A2HallwayNode-34"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-10__A2HallwayNode-31",
+      "from": "A2HallwayNode-10",
+      "to": "A2HallwayNode-31"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-31__A2HallwayNode-32",
+      "from": "A2HallwayNode-31",
+      "to": "A2HallwayNode-32"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-42__A2Elevator",
+      "from": "A2HallwayNode-42",
+      "to": "A2Elevator"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-29__A2HallwayNode-30",
+      "from": "A2HallwayNode-29",
+      "to": "A2HallwayNode-30"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-29__A2HallwayNode-28",
+      "from": "A2HallwayNode-29",
+      "to": "A2HallwayNode-28"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-31__A2HallwayNode-42",
+      "from": "A2HallwayNode-31",
+      "to": "A2HallwayNode-42"
+    },
+    {
+      "id": "A2Edge__A2HallwayNode-42__A2HallwayNode-29",
+      "from": "A2HallwayNode-42",
+      "to": "A2HallwayNode-29"
     }
   ]
 }

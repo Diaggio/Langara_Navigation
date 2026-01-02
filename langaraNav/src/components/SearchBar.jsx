@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ElevatorIcon } from "./Icons";
 
 function SearchBar(props) {
   // Local "Draft" states for typing
@@ -8,7 +9,10 @@ function SearchBar(props) {
   return (
     <>
       <div id="pathfinder-ui">
-        {/* 1. THE TOP ICON BAR */}
+        <div className="app-title">
+          LangaraNAV
+        </div>
+        {/* THE TOP ICON BAR */}
         {props.isDirectionsMode && (
           <div className="nav-header">
             <div className="mode-icons">
@@ -18,18 +22,18 @@ function SearchBar(props) {
                 onClick={function () { props.setElevatorOnly(!props.elevatorOnly); }}
                 title="Elevators Only"
               >
-                🛗
+                <ElevatorIcon />
               </button>
             </div>
 
             {/* The Close Button */}
             <button className="header-close-btn"
             onClick={function () {
-              // 1. Clear the text currently typed in the component
+              // Clear the text currently typed in the component
               setLocalStart("");
               setLocalEnd("");
 
-              // 2. Call the App.jsx function to reset the map and directions mode
+              // Call the App.jsx function to reset the map and directions mode
               props.onClose();
             }}
             >
@@ -57,27 +61,27 @@ function SearchBar(props) {
           />
         </div>
 
-        {/* 3. ERROR MESSAGE (Inserted here) */}
+        {/* ERROR MESSAGE (Inserted here) */}
         {props.errorMessage && (
           <div className="inline-error">
             {props.errorMessage}
           </div>
         )}
 
-        {/* 3. THE FIND BUTTON */}
+        {/* THE FIND BUTTON */}
         {!props.isDirectionsMode ? (
           <button onClick={() => props.onSearch(localEnd)}>Find Room</button>
         ) : (
           <button
             className="findPath-btn"
             onClick={function () {
-              // 1. If start and end are the same, just show the room
+              // If start and end are the same, just show the room
               if (localStart === localEnd && localStart !== "") {
                 setLocalStart("");
                 props.onClose();          // Closes the "From" box
                 props.onSearch(localEnd, false); // Highlights just the one room
               } else {
-                // 2. Otherwise, find the path between them
+                //  Otherwise, find the path between them
                 props.onGetDirections(localStart, localEnd);
               }
             }}

@@ -1,5 +1,4 @@
 function ErrorMessage(props) {
-  // If there is no error message, return null (renders nothing)
   if (!props.message) {
     return null;
   }

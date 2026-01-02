@@ -55,3 +55,8 @@ mobile
     - glow different colours for ending and starting points 
 - next arrow to move through events?
     - events array to loop through for the next arrows? 
+
+
+----------
+- A2
+    - square in room 277 needs to be split

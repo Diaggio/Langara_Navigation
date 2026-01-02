@@ -4,17 +4,17 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 function MapDisplay(props) {
   const { floorId, endRoom, pathIds, nodeMap } = props;
   const [svgContent, setSvgContent] = useState("");
-  // 1. Add state for the viewBox
+  // Add state for the viewBox
   const [viewBox, setViewBox] = useState("0 0 1000 1000");
   const transformRef = useRef(null);
 
   useEffect(function() {
-    fetch("/Images/" + floorId + "FloorPlanBlank.svg")
+    fetch("/Images/" + floorId + "FloorPlan.svg")
       .then(function(res) { return res.text(); })
       .then(function(data) {
         setSvgContent(data);
 
-        // 2. Extract the viewBox from the SVG file text
+        // Extract the viewBox from the SVG file text
         const match = data.match(/viewBox="([^"]+)"/);
         if (match && match[1]) {
           setViewBox(match[1]);
@@ -61,31 +61,34 @@ function MapDisplay(props) {
   }
 
   useEffect(function() {
-    // A. Clean up: Remove highlight from any old rooms
+    // Remove highlight from any old rooms
     const oldHighlights = document.querySelectorAll(".highlight-room");
     for (const el of oldHighlights) {
       el.classList.remove("highlight-room");
     }
     const roomIsOnThisFloor = endRoom && endRoom.substring(0, 2) === floorId;
 
-    // B. Add highlight to the target room
+    //  Add highlight to the target room
     if (roomIsOnThisFloor) {
       const el = document.getElementById("room-" + endRoom);
       if (el) {
         el.classList.add("highlight-room");
-        // C. Bring to front: SVG draws in order, so move to end of list
+        // Bring to front: SVG draws in order, so move to end of list
         el.parentNode.appendChild(el);
       }
     }
   }, [endRoom, svgContent,pathIds,floorId]);
 
+  const startNode = (pathIds && pathIds.length > 0) ? nodeMap.get(pathIds[0]) : null;
+
   return (
     <TransformWrapper
+      key={floorId + svgContent.length}
       ref={transformRef}
       initialScale={1}
       minScale={0.2}
       maxScale={8}
-      centerOnInit={false}
+      centerOnInit={true}
       limitToBounds={false}
       alignmentAnimation={{ disabled: true }}
       panning={{ velocityDisabled: true }}
@@ -101,7 +104,8 @@ function MapDisplay(props) {
             dangerouslySetInnerHTML={{ __html: svgContent }} 
           />
           <svg className="path-overlay" 
-          viewBox={viewBox} 
+          viewBox={viewBox}
+          preserveAspectRatio="xMidYMid meet" 
           style={{
             position: "absolute",
             top: 0,
