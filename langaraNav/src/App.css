@@ -22,14 +22,14 @@ body, html {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden; /* Prevents the whole page from scrolling */
 }
 
 #appContainer {
   position: relative; /* Acts as the anchor for floating UI */
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: #e0e0e0;
 }
 .ui-overlay {
@@ -256,13 +256,14 @@ body, html {
   fill: none;
   stroke: #f26721;
   stroke-width: 3px;
-  stroke-dasharray: 4;
+  stroke-dasharray: 4 6;
   vector-effect: non-scaling-stroke;
+  will-change: stroke-dashoffset;
   animation: march 1s linear infinite;
 }
 
 @keyframes march {
-  to { stroke-dashoffset: -8; }
+  to { stroke-dashoffset: -10; }
 }
 
 /* Controls & Buttons*/
@@ -408,17 +409,19 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   }
 
   #info-card {
+    position:fixed;
     left: 50%;
-    bottom: calc(15px + env(safe-area-inset-bottom));
-    width: 95%;
-    max-width: none;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    background: white;
+    width: 88%;
+    max-width: 380px;
     border-radius: 20px;
-    /* Hidden below screen by default */
-    transform: translate(-50%, 150%); 
+    transform: translate(-50%, calc(100% + 200px)); 
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 2000; /* Stays above the search bar */
 
     border-radius: 20px;
+    
   }
 
   /* When the 'open' class is added via React state */

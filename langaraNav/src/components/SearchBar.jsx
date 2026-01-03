@@ -13,13 +13,21 @@ function SearchBar(props) {
     if (!props.isDirectionsMode) {
       props.onSearch(localEnd);
     } else {
-      if (localStart === localEnd && localStart !== "") {
+      const startInput = localStart.trim().toLowerCase();
+      const endInput = localEnd.trim().toLowerCase();
+
+      if (startInput === endInput && startInput !== "") {
         setLocalStart("");
         props.onSearch(localEnd, false); // Collapse UI
       } else {
         props.onGetDirections(localStart, localEnd);
       }
     }
+
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+
   }
 
   return (

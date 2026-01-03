@@ -51,6 +51,8 @@ function App() {
       setEndRoom(actualRoom);
       setCurrentFloor(actualRoom.substring(0, 2));
       setIsDirectionsMode(true);
+      setPathSegments([]); 
+      setStartRoom("");
 
       if (openDirections) {
       setIsDirectionsMode(true);
@@ -71,14 +73,20 @@ function App() {
     const actualEnd = roomsList.find(
       (r) => r.toLowerCase() === end.trim().toLowerCase()
     );
-    if(!roomsList.includes(start)) {
+
+    if (actualStart === actualEnd && actualStart !== undefined) {
+      handleFindRoom(end, false);
+      return;
+    }
+
+    if(!roomsList.includes(actualStart)) {
       setError("Starting room not found.");
       return;
     }
 
     setStartRoom(actualStart);
     setEndRoom(actualEnd);
-    // searchQuery is our Destination, originRoom is our Start
+
     const pathIds = getProcessedPath(actualStart, actualEnd, graph, nodeMap, hallwayEdges, elevatorOnly);
     
     if (pathIds && pathIds.length > 0) {
