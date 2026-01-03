@@ -43,10 +43,13 @@ function App() {
   // Handler for searching
   function handleFindRoom(roomName,openDirections = true) {
     setError("");
+    const actualRoom = roomsList.find(
+      (r) => r.toLowerCase() === roomName.trim().toLowerCase()
+    );
    
-    if (roomsList.includes(roomName)) {
-      setEndRoom(roomName);
-      setCurrentFloor(roomName.substring(0, 2));
+    if (roomsList.includes(actualRoom)) {
+      setEndRoom(actualRoom);
+      setCurrentFloor(actualRoom.substring(0, 2));
       setIsDirectionsMode(true);
 
       if (openDirections) {
@@ -56,22 +59,27 @@ function App() {
       }
     } else {
       // Set error if validation fails
-      setError("Room '" + roomName + "' not found.");
+      setError("Room '" + actualRoom + "' not found.");
     }
   }
 
   function handleGetDirections(start, end) {
     setError("");
-
+    const actualStart = roomsList.find(
+      (r) => r.toLowerCase() === start.trim().toLowerCase()
+    );
+    const actualEnd = roomsList.find(
+      (r) => r.toLowerCase() === end.trim().toLowerCase()
+    );
     if(!roomsList.includes(start)) {
       setError("Starting room not found.");
       return;
     }
 
-    setStartRoom(start);
-    setEndRoom(end);
+    setStartRoom(actualStart);
+    setEndRoom(actualEnd);
     // searchQuery is our Destination, originRoom is our Start
-    const pathIds = getProcessedPath(start, end, graph, nodeMap, hallwayEdges, elevatorOnly);
+    const pathIds = getProcessedPath(actualStart, actualEnd, graph, nodeMap, hallwayEdges, elevatorOnly);
     
     if (pathIds && pathIds.length > 0) {
       const segments = segmentPathByFloor(pathIds);

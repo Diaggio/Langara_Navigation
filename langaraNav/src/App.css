@@ -414,9 +414,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
     max-width: none;
     border-radius: 20px 20px 0 0;
     /* Hidden below screen by default */
-    transform: translate(-50%, 100%); 
+    transform: translate(-50%, 110%); 
     transition: transform 0.3s ease-in-out;
     z-index: 2000; /* Stays above the search bar */
+
+    padding-bottom: env(safe-area-inset-bottom);
+    margin-bottom: 10px;
+    border-radius: 20px
   }
 
   /* When the 'open' class is added via React state */
