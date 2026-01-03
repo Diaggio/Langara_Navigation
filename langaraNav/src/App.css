@@ -409,18 +409,16 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
   #info-card {
     left: 50%;
-    bottom: 0;
+    bottom: calc(15px + env(safe-area-inset-bottom));
     width: 95%;
     max-width: none;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     /* Hidden below screen by default */
-    transform: translate(-50%, 110%); 
-    transition: transform 0.3s ease-in-out;
+    transform: translate(-50%, 150%); 
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 2000; /* Stays above the search bar */
 
-    padding-bottom: env(safe-area-inset-bottom);
-    margin-bottom: 10px;
-    border-radius: 20px
+    border-radius: 20px;
   }
 
   /* When the 'open' class is added via React state */
