@@ -1,20 +1,57 @@
 import { useState } from "react";
-import { ElevatorIcon } from "./Icons";
+import { ElevatorIcon, BackIcon, InfoIcon } from "./Icons";
+
 
 function SearchBar(props) {
   // Local "Draft" states for typing
   const [localStart, setLocalStart] = useState("");
   const [localEnd, setLocalEnd] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault(); // Stop page reload
+
+    if (!props.isDirectionsMode) {
+      props.onSearch(localEnd);
+    } else {
+      if (localStart === localEnd && localStart !== "") {
+        setLocalStart("");
+        props.onSearch(localEnd, false); // Collapse UI
+      } else {
+        props.onGetDirections(localStart, localEnd);
+      }
+    }
+  }
+
   return (
     <>
-      <div id="pathfinder-ui">
-        <div className="app-title">
-          LangaraNAV
+      <form id="pathfinder-ui" onSubmit={handleSubmit}>
+        <div className="title-row">
+          {/* Show the back arrow ONLY in directions mode on Mobile */}
+          {props.isDirectionsMode && (
+          <button 
+            type="button" 
+            className="back-icon-btn mobile-only" 
+            onClick={function () {
+              setLocalStart(""); 
+              setLocalEnd("");   
+              props.onClose();
+          }}
+          >
+            <BackIcon />
+          </button>
+          )}
+          <div className="app-title">
+            LangaraNAV
+          </div>
+          <button type="button"
+            className="info-icon-btn"
+            onClick={props.onToggleInfo}>
+              <InfoIcon />
+          </button>
         </div>
         {/* THE TOP ICON BAR */}
         {props.isDirectionsMode && (
-          <div className="nav-header">
+          <div className="nav-header mobile-hide">
             <div className="mode-icons">
               {/* Elevator Toggle Button */}
               <button
@@ -42,7 +79,7 @@ function SearchBar(props) {
           </div>
         )}
 
-        {/* 2. THE INPUTS */}
+        {/* THE INPUTS */}
         <div className="input-group">
           {props.isDirectionsMode && (
             <input
@@ -70,10 +107,13 @@ function SearchBar(props) {
 
         {/* THE FIND BUTTON */}
         {!props.isDirectionsMode ? (
-          <button onClick={() => props.onSearch(localEnd)}>Find Room</button>
+          <button 
+            type="submit" className="mobile-hide" disabled={props.isLoading}>
+            Find Room
+          </button>
         ) : (
           <button
-            className="findPath-btn"
+            className="findPath-btn mobile-hide"
             onClick={function () {
               // If start and end are the same, just show the room
               if (localStart === localEnd && localStart !== "") {
@@ -105,7 +145,7 @@ function SearchBar(props) {
           </>
         )}
 
-      </div>
+      </form>
 
       <datalist id="room-list">
         {props.rooms.map(function (room) {

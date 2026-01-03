@@ -48,15 +48,27 @@ body, html {
   pointer-events: auto; 
 }
 
-.app-title {
-  font-family: 'TheSans Trial', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #f26721; /* Brand Blue */
-  letter-spacing: -0.5px;
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
   margin-bottom: 5px;
-  padding-left: 4px;
-  /* This ensures it looks like a logo placeholder */
+}
+
+.mobile-only {
+  display: none;
+}
+
+.app-title {
+  font-family: 'TheSans Trial', sans-serif; /* Cleaned up duplicate font */
+  font-size: 1.3rem; 
+  font-weight: bold;
+  color: #f26721;
+  text-align: center;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
 #pathfinder-ui {
@@ -283,6 +295,10 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   display: none !important;
 }
 
+.info-icon-btn {
+  display: none;
+}
+
 #info-card {
   position: absolute;
   bottom: 20px;
@@ -294,6 +310,11 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
+  pointer-events: auto;
+}
+
+.info-header {
+  display: none; 
 }
 
 .info-section {
@@ -318,4 +339,100 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   width: 90%;
   border-top: 1px solid #eee;
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  /* 1. Hide the Info Card */
+
+  /* 2. Compact the UI Overlay */
+  .ui-overlay {
+    width: auto;
+    box-sizing: border-box;
+    top: 10px;
+    left: 10px;
+    right: 10px; /* Stretch across the top */
+    pointer-events: none;
+  }
+  
+  #pathfinder-ui {
+    pointer-events: auto;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  /* 3. Hide the 'Find Room' button only (not the 'Find Path' button) */
+  /* We will add a specific class to the first button in the next step */
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .findPath-btn {
+    width: 100%;
+  }
+
+  .back-icon-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .app-title {
+    font-size: 1.2rem;
+  }
+
+  .info-icon-btn {
+    display: flex !important; 
+    position: absolute;
+    right: 5px;              
+    width: 36px;
+    height: 36px;
+    padding: 6px;          
+    background: none;
+    border: none;
+    color: #5f6368;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #info-card {
+    left: 50%;
+    bottom: 0;
+    width: 95%;
+    max-width: none;
+    border-radius: 20px 20px 0 0;
+    /* Hidden below screen by default */
+    transform: translate(-50%, 100%); 
+    transition: transform 0.3s ease-in-out;
+    z-index: 2000; /* Stays above the search bar */
+  }
+
+  /* When the 'open' class is added via React state */
+  #info-card.open {
+    transform: translate(-50%, 0);
+  }
+
+  /* Show the header with the X button on mobile */
+  .info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 5px 20px;
+    font-family: 'TheSans Trial', sans-serif;
+    font-weight: bold;
+  }
+
+
 }

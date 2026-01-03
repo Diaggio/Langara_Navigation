@@ -23,6 +23,7 @@ function App() {
   const [isDirectionsMode, setIsDirectionsMode] = useState(false);
 
   const [elevatorOnly, setElevatorOnly] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
 
   // Initialize Data
   useEffect(function () {
@@ -127,11 +128,14 @@ function App() {
           onPrev={goToPrev}
           onNext={goToNext}
           errorMessage={error}
+          onToggleInfo={function() { setIsInfoOpen(!isInfoOpen); }}
       />
-
     </div>
 
-    <InfoCard />
+    <InfoCard 
+      isOpen={isInfoOpen} 
+      onClose={function() { setIsInfoOpen(false); }}
+    />
 
     <div id="Map-Container">
       <MapDisplay 
