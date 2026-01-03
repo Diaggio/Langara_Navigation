@@ -83,7 +83,7 @@ function SearchBar(props) {
         <div className="input-group">
           {props.isDirectionsMode && (
             <input
-              list="room-list"
+              //list="room-list"
               placeholder="Choose starting point..."
               value={localStart}
               onChange={(e) => setLocalStart(e.target.value)}
@@ -91,7 +91,7 @@ function SearchBar(props) {
             />
           )}
           <input
-            list="room-list"
+            //list="room-list"
             placeholder="Enter Room Number ie. A240c"
             value={localEnd}
             onChange={(e) => setLocalEnd(e.target.value)}
