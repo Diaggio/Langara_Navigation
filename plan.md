@@ -58,6 +58,19 @@ mobile
     - events array to loop through for the next arrows? 
 
 
+## SVG FLOOR PLAN CREATION SEQUENCE
+- transfer layers from pdf onto new file
+- Document properties > change format to pixels > scale set to 1 > resize to content
+- run removeClip.py to remove all clipping masks
+- Run inkscape Apply transform extension to bake all transforms
+- Move all text objects to its own layer (TextLayer)
+
 ----------
+- A1
+    - cafeteria area the employee lounge may need svg fixing
+    - A107c has a duplicate?
+    - A113 has a duplicate?
 - A2
     - square in room 277 needs to be split
+- A3
+    - A353h section is weird, needs room splitting? need to figure out door positions here as well

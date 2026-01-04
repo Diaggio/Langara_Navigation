@@ -41,16 +41,29 @@ export function BackIcon() {
 export function InfoIcon() {
   return (
     <svg width="100%"
-     height="100%" 
-     viewBox="0 0 24 24" 
-     style={{ display: "block" }}>
-      <path 
-        fill="currentColor" 
-        d="M12 17q.425 0 .713-.288T13 16v-4q0-.425-.288-.712T12 11t-.712.288T11 12v4q0 .425.288.713T12 17m0-8q.425
+        height="100%" 
+        viewBox="0 0 24 24" 
+        style={{ display: "block" }}>
+        <path 
+            fill="currentColor" 
+            d="M12 17q.425 0 .713-.288T13 16v-4q0-.425-.288-.712T12 11t-.712.288T11 12v4q0 .425.288.713T12 17m0-8q.425
             0 .713-.288T13 8t-.288-.712T12 7t-.712.288T11 8t.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137T2.788
             15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137
             3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" 
-      />
+        />
+    </svg>
+  );
+}
+
+export function DirectionsIcon() {
+  return (
+    <svg width="100%"
+        height="100%"
+        viewBox="0 0 24 24"
+        style={{ display: "block" }}>
+        <path fill="currentColor" d="M8 15h2v-3h3.5v2.5L17 11l-3.5-3.5V10H9q-.425 0-.712.288T8 11zm4
+            7q-.375 0-.737-.15t-.663-.45l-8-8q-.3-.3-.45-.663T2 12t.15-.737t.45-.663l8-8q.3-.3.663-.45T12
+            2t.738.15t.662.45l8 8q.3.3.45.663T22 12t-.15.738t-.45.662l-8 8q-.3.3-.663.45T12 22" />
     </svg>
   );
 }

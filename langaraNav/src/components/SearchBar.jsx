@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { ElevatorIcon, BackIcon, InfoIcon } from "./Icons";
+import { ElevatorIcon, BackIcon, InfoIcon, DirectionsIcon } from "./Icons";
 
 
 function SearchBar(props) {
   // Local "Draft" states for typing
   const [localStart, setLocalStart] = useState("");
   const [localEnd, setLocalEnd] = useState("");
+
+  const showDirectionsIcon = !props.isDirectionsMode && 
+                            localEnd !== "" && 
+                            localEnd.toLowerCase() === props.endRoom?.toLowerCase();
 
   function handleSubmit(e) {
     e.preventDefault(); // Stop page reload
@@ -15,7 +19,7 @@ function SearchBar(props) {
     } else {
       const startInput = localStart.trim().toLowerCase();
       const endInput = localEnd.trim().toLowerCase();
-
+      
       if (startInput === endInput && startInput !== "") {
         setLocalStart("");
         props.onSearch(localEnd, false); // Collapse UI
@@ -98,12 +102,26 @@ function SearchBar(props) {
 
             />
           )}
-          <input
-            //list="room-list"
-            placeholder="Enter Room Number ie. A240c"
-            value={localEnd}
-            onChange={(e) => setLocalEnd(e.target.value)}
-          />
+          <div className="search-input-wrapper">
+            <input
+              //list="room-list"
+              placeholder="Enter Room Number ie. A240c"
+              value={localEnd}
+              onChange={(e) => setLocalEnd(e.target.value)}
+            />
+            {showDirectionsIcon && (
+            <>
+              <div className="input-divider"></div>
+              <button 
+                type="button" 
+                className="directions-trigger-btn"
+                onClick={() => props.setIsDirectionsMode(true)}
+              >
+                <DirectionsIcon />
+              </button>
+            </>
+          )}
+          </div>
         </div>
 
         {/* ERROR MESSAGE (Inserted here) */}
@@ -120,20 +138,7 @@ function SearchBar(props) {
             Find Room
           </button>
         ) : (
-          <button
-            className="findPath-btn mobile-hide"
-            onClick={function () {
-              // If start and end are the same, just show the room
-              if (localStart === localEnd && localStart !== "") {
-                setLocalStart("");
-                props.onClose();          // Closes the "From" box
-                props.onSearch(localEnd, false); // Highlights just the one room
-              } else {
-                //  Otherwise, find the path between them
-                props.onGetDirections(localStart, localEnd);
-              }
-            }}
-          >
+          <button type="submit" className="findPath-btn mobile-hide" disabled={props.isLoading}>
             Find Path
           </button>
         )}
@@ -142,11 +147,11 @@ function SearchBar(props) {
           <>
             <hr className="nav-divider" />
             <div className="inline-nav-controls">
-              <button onClick={props.onPrev} disabled={props.index === 0}>
+              <button type="button" onClick={props.onPrev} disabled={props.index === 0}>
                 &lt; Prev
               </button>
               <span className="floor-display">Floor {props.floor}</span>
-              <button onClick={props.onNext} disabled={props.index === props.segmentCount - 1}>
+              <button type="button" onClick={props.onNext} disabled={props.index === props.segmentCount - 1}>
                 Next &gt;
               </button>
             </div>

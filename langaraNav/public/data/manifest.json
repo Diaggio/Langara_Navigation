@@ -1,5 +1,7 @@
 {
   "floor_files": [
+    "A0Nodes.json",
+    "A1Nodes.json",
     "A2Nodes.json",
     "A3Nodes.json"
   ]

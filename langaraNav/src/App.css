@@ -63,7 +63,7 @@ body, html {
 
 .app-title {
   font-family: 'TheSans Trial', sans-serif; /* Cleaned up duplicate font */
-  font-size: 1.3rem; 
+  font-size: 1.5rem; 
   font-weight: bold;
   color: #f26721;
   text-align: center;
@@ -96,6 +96,54 @@ body, html {
   font-weight: bold;
 }
 
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: #1a73e8;
+}
+
+/* Make the actual input invisible inside the wrapper */
+.search-input-wrapper input {
+  border: none !important;
+  flex-grow: 1;
+  outline: none;
+}
+
+/* Vertical Divider Bar */
+.input-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #eee;
+  margin: 0 5px;
+}
+
+/* The button inside the input */
+.directions-trigger-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #5f6368; /* Blue for the action icon */
+  padding: 8px;
+}
+
+.directions-trigger-btn:hover {
+  background-color: #f8f9fa;
+}
+
+
 /* Container for Icons and X */
 .nav-header {
   display: flex;
@@ -109,8 +157,8 @@ body, html {
 /* The Elevator Toggle Circle */
 .icon-btn {
   color: #5f6368;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 30%;
   border: none;
   background: transparent;
@@ -312,6 +360,30 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   display: flex;
   flex-direction: column;
   pointer-events: auto;
+  transition: left 0.4s ease-in-out;
+}
+
+#info-card.peeked {
+  left: -280px; 
+}
+
+.desktop-info-toggle {
+  position: absolute;
+  right: -15px; /* Centers the circle on the right edge */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #5f6368;
 }
 
 .info-header {
@@ -427,6 +499,10 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   /* When the 'open' class is added via React state */
   #info-card.open {
     transform: translate(-50%, 0);
+  }
+
+  .desktop-info-toggle {
+    display: none !important;
   }
 
   /* Show the header with the X button on mobile */

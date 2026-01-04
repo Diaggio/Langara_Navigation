@@ -23,7 +23,7 @@ function App() {
   const [isDirectionsMode, setIsDirectionsMode] = useState(false);
 
   const [elevatorOnly, setElevatorOnly] = useState(false);
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(true);
 
   // Initialize Data
   useEffect(function () {
@@ -41,27 +41,24 @@ function App() {
   }, []);
 
   // Handler for searching
-  function handleFindRoom(roomName,openDirections = true) {
+  function handleFindRoom(roomName,openDirections = false) {
     setError("");
     const actualRoom = roomsList.find(
       (r) => r.toLowerCase() === roomName.trim().toLowerCase()
     );
    
-    if (roomsList.includes(actualRoom)) {
+    if (actualRoom && roomsList.includes(actualRoom)) {
       setEndRoom(actualRoom);
       setCurrentFloor(actualRoom.substring(0, 2));
-      setIsDirectionsMode(true);
       setPathSegments([]); 
       setStartRoom("");
 
-      if (openDirections) {
-      setIsDirectionsMode(true);
-      } else {
-        setIsDirectionsMode(false);
-      }
+      setIsDirectionsMode(openDirections);
     } else {
       // Set error if validation fails
-      setError("Room '" + actualRoom + "' not found.");
+      if(roomName != ""){
+        setError("Room '" + roomName + "' not found.");
+      }
     }
   }
 
@@ -131,9 +128,11 @@ function App() {
     <div className="ui-overlay">
       <SearchBar 
           isDirectionsMode={isDirectionsMode}
+          setIsDirectionsMode={setIsDirectionsMode}
           onSearch={handleFindRoom}
           onGetDirections={handleGetDirections}
           rooms={roomsList}
+          endRoom={endRoom}
           isLoading={!graph}
           onClose={handleCloseDirections}
           elevatorOnly={elevatorOnly}
@@ -150,7 +149,9 @@ function App() {
 
     <InfoCard 
       isOpen={isInfoOpen} 
+      onToggle={() => setIsInfoOpen(!isInfoOpen)}
       onClose={function() { setIsInfoOpen(false); }}
+
     />
 
     <div id="Map-Container">
