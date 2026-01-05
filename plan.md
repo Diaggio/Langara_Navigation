@@ -59,6 +59,10 @@ mobile
 
 
 ## SVG FLOOR PLAN CREATION SEQUENCE
+- open/import pdf into inkscape
+    - clip to: crop box
+    - fonts: substitute missing fonts
+    - precision: 1
 - transfer layers from pdf onto new file
 - Document properties > change format to pixels > scale set to 1 > resize to content
 - run removeClip.py to remove all clipping masks
@@ -74,3 +78,6 @@ mobile
     - square in room 277 needs to be split
 - A3
     - A353h section is weird, needs room splitting? need to figure out door positions here as well
+
+- B2
+    - is there a divider behind B246?

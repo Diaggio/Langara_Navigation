@@ -22,4 +22,4 @@ def clean_svg(file_path):
         print(f"Error: {e}")
 
 # Example usage with a relative path to a parent folder
-clean_svg("../langaraNav/public/Images/A3FloorPlan.svg")
+clean_svg("../langaraNav/public/Images/B2FloorPlan.svg")
